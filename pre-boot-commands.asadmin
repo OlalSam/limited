@@ -1,0 +1,7 @@
+# pre-boot-commands.asadmin
+# Commands to run before domain startup
+
+# Set JVM options
+create-jvm-options --target=server-config:-Xmx1024m
+create-jvm-options --target=server-config:-Xms512m
+create-jvm-options --target=server-config:-XX:+UseG1GC

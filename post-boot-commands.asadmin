@@ -1,0 +1,29 @@
+# post-boot-commands.asadmin
+# Commands to run after domain startup
+
+# Create JDBC Connection Pool
+create-jdbc-connection-pool \
+    --datasourceclassname=org.postgresql.ds.PGSimpleDataSource \
+    --restype=javax.sql.DataSource \
+    --property=serverName=${ENV=DB_HOST}:portNumber=${ENV=DB_PORT}:databaseName=${ENV=DB_NAME}:user=${ENV=DB_USER}:password=${ENV=DB_PASSWORD} \
+    PostgreSQLPool
+
+# Create JDBC Resource
+create-jdbc-resource --connectionpoolid=PostgreSQLPool jdbc/nganya1
+
+# Test the connection
+ping-connection-pool PostgreSQLPool
+
+# Enable monitoring
+set configs.config.server-config.monitoring-service.module-monitoring-levels.jdbc-connection-pool=HIGH
+set configs.config.server-config.monitoring-service.module-monitoring-levels.jpa=HIGH
+set configs.config.server-config.monitoring-service.module-monitoring-levels.web-container=HIGH
+
+# Configure logging
+set-log-levels jakarta.persistence=INFO
+set-log-levels org.hibernate=INFO
+
+# Create security realm if needed (uncomment if using custom authentication)
+# create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm \
+#     --property=jaas-context=jdbcRealm:datasource-jndi=jdbc/nganya1:user-table=users:user-name-column=username:password-column=password:group-table=user_groups:group-name-column=group_name \
+#     jdbcRealm

@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres_container
+    environment:
+      POSTGRES_DB: nganya1
+      POSTGRES_USER: olal
+      POSTGRES_PASSWORD: $@m01011001
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database_backup.sql:/docker-entrypoint-initdb.d/database_backup.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U olal -d nganya1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    
+  tms-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tms-payara
+    depends_on:
+      postgres:  # Fixed: Use service name, not container name
+        condition: service_healthy
+    ports:
+      - "8080:8080"  # App
+      - "4848:4848"  # Admin
+    volumes:
+      - payara-deployments:/opt/payara/deployments
+    environment:
+      # Database connection settings
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_NAME=nganya1
+      - DB_USER=olal
+      - DB_PASSWORD=$@m01011001
+      # JVM settings
+      - JAVA_OPTS=-Xmx1024m -Xms512m
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || curl --fail http://localhost:8080/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s  # Increased to allow app startup
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  payara-deployments:
