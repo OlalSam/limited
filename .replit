@@ -1,0 +1,8 @@
+modules = ["nodejs-20", "java-graalvm22.3", "web", "python-3.12"]
+run = "mvn clean package"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "mvn clean package"]

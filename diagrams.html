@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nganya System Documentation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <style>
+        .diagram-container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            page-break-after: always;
+        }
+        .diagram-title {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+        .section-title {
+            text-align: center;
+            margin: 30px 0;
+            color: #2c3e50;
+        }
+        .page-break {
+            page-break-after: always;
+            border-bottom: 2px dashed #ccc;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Nganya Fleet Management System Documentation</h1>
+
+        <div class="diagram-container">
+            <h3 class="diagram-title">System Overview</h3>
+            <p style="line-height: 1.6; margin-bottom: 20px;">
+                The Nganya Fleet Management System is documented through a series of diagrams that provide a comprehensive view of the system's architecture and functionality. The Use Case Diagram illustrates the system's core functionalities and user interactions, showing how administrators and drivers interact with features like fleet management, route planning, and scheduling. The Activity Diagram details the route planning process, including weather checks, traffic monitoring, and driver assignments, providing a clear workflow of how routes are managed. The Swimlane Diagram breaks down the system interactions between administrators, drivers, and external services, showing the flow of information and responsibilities across different system components. The Sequence Diagram focuses on the driver assignment process, demonstrating the step-by-step interaction between the administrator, system, driver, and weather service. Finally, the Class Diagram provides a detailed view of the system's data structure, showing the relationships between key entities like users, drivers, vehicles, routes, and maintenance records. Together, these diagrams offer a complete picture of how the system operates, from high-level user interactions to detailed data relationships.
+            </p>
+        </div>
+
+        <!-- Use Case Diagram Section -->
+        <section id="use-case">
+            <h2 class="section-title">Use Case Diagram</h2>
+            <div class="diagram-container">
+                <h3 class="diagram-title">System Use Cases</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph System
+                            UC1[Manage Fleet]
+                            UC2[Route Planning]
+                            UC3[Driver Management]
+                            UC4[Schedule Management]
+                            UC5[Weather Integration]
+                            UC6[Analytics & Reporting]
+                            UC7[User Authentication]
+                            UC8[Real-time Tracking]
+                        end
+
+                        subgraph Actors
+                            Admin((Administrator))
+                            Driver((Driver))
+                            System((System))
+                        end
+
+                        Admin --> UC1
+                        Admin --> UC2
+                        Admin --> UC3
+                        Admin --> UC4
+                        Admin --> UC6
+                        Admin --> UC7
+                        Driver --> UC2
+                        Driver --> UC4
+                        Driver --> UC8
+                        System --> UC5
+                        System --> UC8
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Activity Diagram Section -->
+        <section id="activity">
+            <h2 class="section-title">Activity Diagram</h2>
+            <div class="diagram-container">
+                <h3 class="diagram-title">Route Planning Process</h3>
+                <div class="mermaid">
+                    graph LR
+                        A([Start]) --> B{Check Weather}
+                        B -->|Good| C{Check Traffic}
+                        B -->|Bad| D[Adjust Route]
+                        C -->|Low| E{Check History}
+                        C -->|High| D
+                        E -->|Optimal| F{Check KPI}
+                        E -->|Suboptimal| D
+                        F -->|Meets| G[Assign Driver]
+                        F -->|Below| D
+                        D --> G
+                        G --> H[Update Schedule]
+                        H --> I[Notify Driver]
+                        I --> J[Monitor Progress]
+                        J --> K{Route Complete?}
+                        K -->|No| J
+                        K -->|Yes| L[Update KPI]
+                        L --> M([End])
+
+                        style A fill:#9f9,stroke:#333,stroke-width:2px
+                        style M fill:#f99,stroke:#333,stroke-width:2px
+                        style B fill:#bbf,stroke:#333,stroke-width:2px
+                        style C fill:#bbf,stroke:#333,stroke-width:2px
+                        style D fill:#f9f,stroke:#333,stroke-width:2px
+                        style E fill:#bbf,stroke:#333,stroke-width:2px
+                        style F fill:#bbf,stroke:#333,stroke-width:2px
+                        style G fill:#f9f,stroke:#333,stroke-width:2px
+                        style H fill:#f9f,stroke:#333,stroke-width:2px
+                        style I fill:#f9f,stroke:#333,stroke-width:2px
+                        style J fill:#f9f,stroke:#333,stroke-width:2px
+                        style K fill:#bbf,stroke:#333,stroke-width:2px
+                        style L fill:#f9f,stroke:#333,stroke-width:2px
+                </div>
+            </div>
+
+            <!-- Swimlane Diagram -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">System Interaction Swimlane</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph Admin
+                            A1[Login] --> A2[View Dashboard]
+                            A2 --> A3[Manage Fleet]
+                            A2 --> A4[Manage Routes]
+                            A2 --> A5[Manage Drivers]
+                        end
+
+                        subgraph Driver
+                            D1[Login] --> D2[View Assignments]
+                            D2 --> D3[Accept Route]
+                            D3 --> D4[Start Journey]
+                            D4 --> D5[Update Status]
+                        end
+
+                        subgraph System
+                            S1[Authentication] --> S2[Process Request]
+                            S2 --> S3[Update Database]
+                            S3 --> S4[Send Notifications]
+                        end
+
+                        subgraph External
+                            E1[Weather API]
+                            E2[Traffic API]
+                            E3[GPS Service]
+                        end
+
+                        A3 --> S2
+                        A4 --> S2
+                        A5 --> S2
+                        D3 --> S2
+                        D5 --> S2
+                        S2 --> E1
+                        S2 --> E2
+                        S2 --> E3
+                        E1 --> S2
+                        E2 --> S2
+                        E3 --> S2
+                        S4 --> D2
+                        S4 --> A2
+
+                        style Admin fill:#f9f,stroke:#333,stroke-width:2px
+                        style Driver fill:#bbf,stroke:#333,stroke-width:2px
+                        style System fill:#bfb,stroke:#333,stroke-width:2px
+                        style External fill:#fbb,stroke:#333,stroke-width:2px
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Sequence Diagram Section -->
+        <section id="sequence">
+            <h2 class="section-title">Sequence Diagram</h2>
+            <div class="diagram-container">
+                <h3 class="diagram-title">Driver Assignment Process</h3>
+                <div class="mermaid">
+                    sequenceDiagram
+                        participant A as Admin
+                        participant S as System
+                        participant D as Driver
+                        participant W as Weather Service
+
+                        A->>S: Request Driver Assignment
+                        S->>W: Get Weather Forecast
+                        W-->>S: Return Weather Data
+                        S->>S: Check Driver Availability
+                        S->>D: Send Assignment Notification
+                        D-->>S: Confirm Assignment
+                        S-->>A: Assignment Complete
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Class Diagram Section -->
+        <section id="class">
+            <h2 class="section-title">Class Diagram</h2>
+            <div class="diagram-container">
+                <h3 class="diagram-title">System Classes</h3>
+                <div class="mermaid">
+                    classDiagram
+                        class User {
+                            -int userId
+                            -String username
+                            -String password
+                            -String email
+                            -String role
+                            -DateTime createdAt
+                            +login()
+                            +logout()
+                            +updateProfile()
+                        }
+
+                        class Driver {
+                            -int driverId
+                            -String licenseNumber
+                            -String licenseType
+                            -Date licenseExpiry
+                            -double rating
+                            -String status
+                            +assignRoute()
+                            +updateStatus()
+                            +viewHistory()
+                        }
+
+                        class Vehicle {
+                            -int vehicleId
+                            -String registrationNumber
+                            -String model
+                            -String make
+                            -int year
+                            -String status
+                            -String type
+                            -double capacity
+                            -DateTime lastMaintenance
+                            +updateStatus()
+                            +getLocation()
+                            +scheduleMaintenance()
+                        }
+
+                        class Route {
+                            -int routeId
+                            -String startLocation
+                            -String endLocation
+                            -double distance
+                            -int estimatedTime
+                            -String status
+                            -DateTime createdAt
+                            +calculateDistance()
+                            +optimizeRoute()
+                            +checkWeather()
+                            +checkTraffic()
+                        }
+
+                        class Schedule {
+                            -int scheduleId
+                            -DateTime startTime
+                            -DateTime endTime
+                            -String status
+                            -String notes
+                            +checkAvailability()
+                            +updateSchedule()
+                            +notifyDriver()
+                        }
+
+                        class Waypoint {
+                            -int waypointId
+                            -String location
+                            -int sequenceNumber
+                            -double latitude
+                            -double longitude
+                            +updateLocation()
+                            +calculateDistance()
+                        }
+
+                        class Maintenance {
+                            -int maintenanceId
+                            -DateTime maintenanceDate
+                            -String maintenanceType
+                            -String description
+                            -double cost
+                            -String status
+                            +scheduleMaintenance()
+                            +updateStatus()
+                            +generateReport()
+                        }
+
+                        class Weather {
+                            -int weatherId
+                            -String location
+                            -String condition
+                            -double temperature
+                            -double windSpeed
+                            +getForecast()
+                            +checkAlerts()
+                            +updateWeather()
+                        }
+
+                        class Traffic {
+                            -int trafficId
+                            -String location
+                            -String condition
+                            -int severity
+                            -DateTime timestamp
+                            +getTrafficData()
+                            +checkAlerts()
+                            +updateTraffic()
+                        }
+
+                        class Trip {
+                            -int tripId
+                            -DateTime startTime
+                            -DateTime endTime
+                            -double distance
+                            -double fuelConsumption
+                            -String status
+                            +startTrip()
+                            +endTrip()
+                            +calculateMetrics()
+                        }
+
+                        class Analytics {
+                            -int analyticsId
+                            -String metricType
+                            -double value
+                            -DateTime timestamp
+                            +calculateKPIs()
+                            +generateReport()
+                            +trackMetrics()
+                        }
+
+                        class Notification {
+                            -int notificationId
+                            -String type
+                            -String message
+                            -DateTime timestamp
+                            -String status
+                            +sendNotification()
+                            +updateStatus()
+                            +trackDelivery()
+                        }
+
+                        %% Relationships
+                        User <|-- Driver
+                        Vehicle "1" -- "1" Driver
+                        Route "1" -- "*" Schedule
+                        Route "1" -- "*" Waypoint
+                        Vehicle "1" -- "*" Maintenance
+                        Route "1" -- "1" Weather
+                        Route "1" -- "1" Traffic
+                        Driver "1" -- "*" Trip
+                        Vehicle "1" -- "*" Trip
+                        Trip "1" -- "*" Analytics
+                        User "1" -- "*" Notification
+                        Driver "1" -- "*" Notification
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Context Diagram Section -->
+        <section id="context">
+            <h2 class="section-title">Context Diagram</h2>
+            <div class="diagram-container">
+                <h3 class="diagram-title">System Context</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph NganyaSystem[Nganya Fleet Management System]
+                            Core[Core System]
+                        end
+
+                        Admin((Administrator))
+                        Driver((Driver))
+                        WeatherAPI((Weather API))
+                        GPS((GPS Service))
+                        Database((Database))
+
+                        Admin <--> Core
+                        Driver <--> Core
+                        WeatherAPI <--> Core
+                        GPS <--> Core
+                        Core <--> Database
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Data Flow Diagram Section -->
+        <section id="data-flow">
+            <h2 class="section-title">Data Flow Diagram</h2>
+            <div class="diagram-container">
+                <h3 class="diagram-title">System Data Flow</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph System
+                            Process1[User Authentication]
+                            Process2[Route Management]
+                            Process3[Fleet Management]
+                            Process4[Schedule Management]
+                            Process5[Analytics]
+                        end
+
+                        subgraph DataStores
+                            DS1[(User DB)]
+                            DS2[(Route DB)]
+                            DS3[(Fleet DB)]
+                            DS4[(Schedule DB)]
+                        end
+
+                        Admin((Admin)) --> Process1
+                        Driver((Driver)) --> Process1
+                        Process1 --> DS1
+                        Process2 --> DS2
+                        Process3 --> DS3
+                        Process4 --> DS4
+                        Process5 --> DS1
+                        Process5 --> DS2
+                        Process5 --> DS3
+                        Process5 --> DS4
+                </div>
+            </div>
+        </section>
+
+        <div class="page-break"></div>
+
+        <!-- Detailed Data Flow Diagrams Section -->
+        <section id="detailed-dfd">
+            <h2 class="section-title">Detailed Data Flow Diagrams</h2>
+            
+            <!-- Level 0 DFD -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Level 0 DFD - System Context</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph System[Nganya Fleet Management System]
+                            Process[Fleet Management Process]
+                        end
+
+                        Admin((Administrator))
+                        Driver((Driver))
+                        WeatherAPI((Weather API))
+                        GPS((GPS Service))
+                        Database((Database))
+
+                        Admin <--> Process
+                        Driver <--> Process
+                        WeatherAPI <--> Process
+                        GPS <--> Process
+                        Process <--> Database
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Level 1 DFD -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Level 1 DFD - Main Processes</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph System
+                            Process1[User Management]
+                            Process2[Fleet Management]
+                            Process3[Route Management]
+                            Process4[Schedule Management]
+                            Process5[Weather Management]
+                            Process6[Analytics]
+                        end
+
+                        subgraph External
+                            Admin((Administrator))
+                            Driver((Driver))
+                            WeatherAPI((Weather API))
+                            GPS((GPS Service))
+                        end
+
+                        subgraph DataStores
+                            DS1[(User DB)]
+                            DS2[(Fleet DB)]
+                            DS3[(Route DB)]
+                            DS4[(Schedule DB)]
+                            DS5[(Weather DB)]
+                        end
+
+                        Admin <--> Process1
+                        Driver <--> Process1
+                        Admin <--> Process2
+                        Admin <--> Process3
+                        Driver <--> Process3
+                        Admin <--> Process4
+                        Driver <--> Process4
+                        WeatherAPI <--> Process5
+                        GPS <--> Process3
+
+                        Process1 <--> DS1
+                        Process2 <--> DS2
+                        Process3 <--> DS3
+                        Process4 <--> DS4
+                        Process5 <--> DS5
+                        Process6 <--> DS1
+                        Process6 <--> DS2
+                        Process6 <--> DS3
+                        Process6 <--> DS4
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Level 2 DFD - User Management -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Level 2 DFD - User Management Process</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph UserManagement[User Management Process]
+                            P1[Authentication]
+                            P2[Profile Management]
+                            P3[Role Management]
+                            P4[Driver Registration]
+                        end
+
+                        subgraph External
+                            Admin((Administrator))
+                            Driver((Driver))
+                        end
+
+                        subgraph DataStores
+                            DS1[(User DB)]
+                            DS2[(Driver DB)]
+                            DS3[(Role DB)]
+                        end
+
+                        Admin <--> P1
+                        Driver <--> P1
+                        Admin <--> P2
+                        Driver <--> P2
+                        Admin <--> P3
+                        Admin <--> P4
+
+                        P1 <--> DS1
+                        P2 <--> DS1
+                        P3 <--> DS3
+                        P4 <--> DS2
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Level 2 DFD - Fleet Management -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Level 2 DFD - Fleet Management Process</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph FleetManagement[Fleet Management Process]
+                            P1[Vehicle Registration]
+                            P2[Maintenance Management]
+                            P3[Status Tracking]
+                            P4[Assignment Management]
+                        end
+
+                        subgraph External
+                            Admin((Administrator))
+                            GPS((GPS Service))
+                        end
+
+                        subgraph DataStores
+                            DS1[(Vehicle DB)]
+                            DS2[(Maintenance DB)]
+                            DS3[(Assignment DB)]
+                        end
+
+                        Admin <--> P1
+                        Admin <--> P2
+                        Admin <--> P3
+                        Admin <--> P4
+                        GPS <--> P3
+
+                        P1 <--> DS1
+                        P2 <--> DS2
+                        P3 <--> DS1
+                        P4 <--> DS3
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Level 2 DFD - Route Management -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Level 2 DFD - Route Management Process</h3>
+                <div class="mermaid">
+                    graph TB
+                        subgraph RouteManagement[Route Management Process]
+                            P1[Route Planning]
+                            P2[Waypoint Management]
+                            P3[Weather Integration]
+                            P4[Route Optimization]
+                        end
+
+                        subgraph External
+                            Admin((Administrator))
+                            Driver((Driver))
+                            WeatherAPI((Weather API))
+                        end
+
+                        subgraph DataStores
+                            DS1[(Route DB)]
+                            DS2[(Waypoint DB)]
+                            DS3[(Weather DB)]
+                        end
+
+                        Admin <--> P1
+                        Driver <--> P1
+                        Admin <--> P2
+                        Driver <--> P2
+                        WeatherAPI <--> P3
+                        Admin <--> P4
+                        Driver <--> P4
+
+                        P1 <--> DS1
+                        P2 <--> DS2
+                        P3 <--> DS3
+                        P4 <--> DS1
+                </div>
+            </div>
+        </section>
+
+        <!-- Flowcharts Section -->
+        <div class="diagram-container">
+            <h3 class="diagram-title">User Authentication Flow</h3>
+            <div class="mermaid">
+                graph TD
+                    Start([Start]) --> Login[Enter Credentials]
+                    Login --> Validate{Validate Input}
+                    Validate -->|Invalid| ShowError[Show Error Message]
+                    ShowError --> Login
+                    Validate -->|Valid| CheckDB{Check Database}
+                    CheckDB -->|Not Found| InvalidUser[Invalid User]
+                    InvalidUser --> Login
+                    CheckDB -->|Found| CheckRole{Check Role}
+                    CheckRole -->|Admin| AdminDash[Admin Dashboard]
+                    CheckRole -->|Driver| DriverDash[Driver Dashboard]
+                    AdminDash --> End([End])
+                    DriverDash --> End
+
+                    style Start fill:#9f9,stroke:#333,stroke-width:2px
+                    style End fill:#f99,stroke:#333,stroke-width:2px
+                    style Validate fill:#bbf,stroke:#333,stroke-width:2px
+                    style CheckDB fill:#bbf,stroke:#333,stroke-width:2px
+                    style CheckRole fill:#bbf,stroke:#333,stroke-width:2px
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="diagram-container">
+            <h3 class="diagram-title">Vehicle Maintenance Flow</h3>
+            <div class="mermaid">
+                graph TD
+                    Start([Start]) --> CheckStatus{Check Vehicle Status}
+                    CheckStatus -->|Normal| ContinueUse[Continue Using]
+                    CheckStatus -->|Maintenance Due| ScheduleMaintenance[Schedule Maintenance]
+                    ScheduleMaintenance --> AssignMechanic{Assign Mechanic}
+                    AssignMechanic -->|Available| ProceedMaintenance[Proceed with Maintenance]
+                    AssignMechanic -->|Not Available| Reschedule[Reschedule]
+                    Reschedule --> ScheduleMaintenance
+                    ProceedMaintenance --> PerformMaintenance[Perform Maintenance]
+                    PerformMaintenance --> UpdateRecords[Update Maintenance Records]
+                    UpdateRecords --> UpdateVehicleStatus[Update Vehicle Status]
+                    UpdateVehicleStatus --> End([End])
+                    ContinueUse --> End
+
+                    style Start fill:#9f9,stroke:#333,stroke-width:2px
+                    style End fill:#f99,stroke:#333,stroke-width:2px
+                    style CheckStatus fill:#bbf,stroke:#333,stroke-width:2px
+                    style AssignMechanic fill:#bbf,stroke:#333,stroke-width:2px
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Database Design Section -->
+        <section id="database">
+            <h2 class="section-title">Database Design</h2>
+            
+            <!-- ERD Diagram -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Entity-Relationship Diagram</h3>
+                <div class="mermaid">
+                    erDiagram
+                        USERS {
+                            int user_id PK
+                            string username
+                            string password_hash
+                            string email
+                            string role
+                            datetime created_at
+                            datetime last_login
+                        }
+
+                        DRIVERS {
+                            int driver_id PK
+                            int user_id FK
+                            string license_number
+                            string license_type
+                            date license_expiry
+                            string status
+                            decimal rating
+                        }
+
+                        VEHICLES {
+                            int vehicle_id PK
+                            string registration_number
+                            string model
+                            string make
+                            int year
+                            string status
+                            string type
+                            decimal capacity
+                            datetime last_maintenance
+                        }
+
+                        ROUTES {
+                            int route_id PK
+                            string start_location
+                            string end_location
+                            decimal distance
+                            int estimated_time
+                            string status
+                            datetime created_at
+                        }
+
+                        SCHEDULES {
+                            int schedule_id PK
+                            int route_id FK
+                            int driver_id FK
+                            int vehicle_id FK
+                            datetime start_time
+                            datetime end_time
+                            string status
+                            string notes
+                        }
+
+                        WAYPOINTS {
+                            int waypoint_id PK
+                            int route_id FK
+                            string location
+                            int sequence_number
+                            decimal latitude
+                            decimal longitude
+                        }
+
+                        MAINTENANCE {
+                            int maintenance_id PK
+                            int vehicle_id FK
+                            datetime maintenance_date
+                            string maintenance_type
+                            string description
+                            decimal cost
+                            string status
+                        }
+
+                        WEATHER_ALERTS {
+                            int alert_id PK
+                            int route_id FK
+                            string alert_type
+                            string description
+                            datetime alert_time
+                            string severity
+                        }
+
+                        DRIVER_ASSIGNMENTS {
+                            int assignment_id PK
+                            int driver_id FK
+                            int vehicle_id FK
+                            datetime assignment_date
+                            string status
+                        }
+
+                        USERS ||--o{ DRIVERS : "has"
+                        DRIVERS ||--o{ SCHEDULES : "assigned to"
+                        VEHICLES ||--o{ SCHEDULES : "assigned to"
+                        ROUTES ||--o{ SCHEDULES : "has"
+                        ROUTES ||--o{ WAYPOINTS : "contains"
+                        VEHICLES ||--o{ MAINTENANCE : "requires"
+                        ROUTES ||--o{ WEATHER_ALERTS : "has"
+                        DRIVERS ||--o{ DRIVER_ASSIGNMENTS : "has"
+                        VEHICLES ||--o{ DRIVER_ASSIGNMENTS : "assigned to"
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Database Schema Description -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Database Schema Description</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Table Name</th>
+                                <th>Description</th>
+                                <th>Key Relationships</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>USERS</td>
+                                <td>Stores user authentication and profile information</td>
+                                <td>Parent table for DRIVERS</td>
+                            </tr>
+                            <tr>
+                                <td>DRIVERS</td>
+                                <td>Contains driver-specific information and credentials</td>
+                                <td>Links to USERS, SCHEDULES, and DRIVER_ASSIGNMENTS</td>
+                            </tr>
+                            <tr>
+                                <td>VEHICLES</td>
+                                <td>Stores fleet vehicle information and status</td>
+                                <td>Links to SCHEDULES, MAINTENANCE, and DRIVER_ASSIGNMENTS</td>
+                            </tr>
+                            <tr>
+                                <td>ROUTES</td>
+                                <td>Contains route information and waypoints</td>
+                                <td>Links to SCHEDULES, WAYPOINTS, and WEATHER_ALERTS</td>
+                            </tr>
+                            <tr>
+                                <td>SCHEDULES</td>
+                                <td>Manages route assignments and timing</td>
+                                <td>Links to ROUTES, DRIVERS, and VEHICLES</td>
+                            </tr>
+                            <tr>
+                                <td>WAYPOINTS</td>
+                                <td>Stores intermediate points for routes</td>
+                                <td>Links to ROUTES</td>
+                            </tr>
+                            <tr>
+                                <td>MAINTENANCE</td>
+                                <td>Tracks vehicle maintenance history</td>
+                                <td>Links to VEHICLES</td>
+                            </tr>
+                            <tr>
+                                <td>WEATHER_ALERTS</td>
+                                <td>Stores weather-related alerts for routes</td>
+                                <td>Links to ROUTES</td>
+                            </tr>
+                            <tr>
+                                <td>DRIVER_ASSIGNMENTS</td>
+                                <td>Manages driver-vehicle assignments</td>
+                                <td>Links to DRIVERS and VEHICLES</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI Mockups Section -->
+        <section id="ui-mockups">
+            <h2 class="section-title">User Interface Mockups</h2>
+
+            <!-- Admin Dashboard -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Admin Dashboard</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Nganya Fleet Management</div>
+                        <div style="display: flex; gap: 10px;">
+                            <span>Admin User</span>
+                            <span>🔔</span>
+                            <span>👤</span>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 20px;">
+                        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                            <div style="margin-bottom: 15px;">📊 Dashboard</div>
+                            <div style="margin-bottom: 15px;">🚗 Fleet Management</div>
+                            <div style="margin-bottom: 15px;">🗺️ Route Planning</div>
+                            <div style="margin-bottom: 15px;">👥 Driver Management</div>
+                            <div style="margin-bottom: 15px;">📅 Scheduling</div>
+                            <div style="margin-bottom: 15px;">📈 Analytics</div>
+                        </div>
+                        <div>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px;">
+                                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px;">
+                                    <div>Active Vehicles</div>
+                                    <div style="font-size: 24px;">24</div>
+                                </div>
+                                <div style="background: #e8f5e9; padding: 15px; border-radius: 8px;">
+                                    <div>Active Drivers</div>
+                                    <div style="font-size: 24px;">18</div>
+                                </div>
+                                <div style="background: #fff3e0; padding: 15px; border-radius: 8px;">
+                                    <div>Pending Routes</div>
+                                    <div style="font-size: 24px;">12</div>
+                                </div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                                <h4>Recent Activities</h4>
+                                <div style="margin-bottom: 10px;">• New route assigned to Driver #123</div>
+                                <div style="margin-bottom: 10px;">• Vehicle #456 maintenance completed</div>
+                                <div style="margin-bottom: 10px;">• Weather alert for Route #789</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Admin Fleet Management -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Admin Fleet Management</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Fleet Management</div>
+                        <button style="background: #4CAF50; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Add Vehicle</button>
+                    </div>
+                    <div style="background: #f5f5f5; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                            <input type="text" placeholder="Search vehicles..." style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; flex: 1;">
+                            <select style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                <option>All Status</option>
+                                <option>Active</option>
+                                <option>Maintenance</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: #e0e0e0;">
+                                    <th style="padding: 10px; text-align: left;">Vehicle ID</th>
+                                    <th style="padding: 10px; text-align: left;">Registration</th>
+                                    <th style="padding: 10px; text-align: left;">Model</th>
+                                    <th style="padding: 10px; text-align: left;">Status</th>
+                                    <th style="padding: 10px; text-align: left;">Last Maintenance</th>
+                                    <th style="padding: 10px; text-align: left;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 10px;">V001</td>
+                                    <td style="padding: 10px;">KAA 123A</td>
+                                    <td style="padding: 10px;">Toyota Hiace</td>
+                                    <td style="padding: 10px;"><span style="background: #4CAF50; color: white; padding: 4px 8px; border-radius: 4px;">Active</span></td>
+                                    <td style="padding: 10px;">2024-02-15</td>
+                                    <td style="padding: 10px;">✏️ 🗑️ 📋</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px;">V002</td>
+                                    <td style="padding: 10px;">KAA 124B</td>
+                                    <td style="padding: 10px;">Nissan NV350</td>
+                                    <td style="padding: 10px;"><span style="background: #FFA726; color: white; padding: 4px 8px; border-radius: 4px;">Maintenance</span></td>
+                                    <td style="padding: 10px;">2024-03-01</td>
+                                    <td style="padding: 10px;">✏️ 🗑️ 📋</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Driver Dashboard -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Driver Dashboard</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Driver Dashboard</div>
+                        <div style="display: flex; gap: 10px;">
+                            <span>Driver #123</span>
+                            <span>🔔</span>
+                            <span>👤</span>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 20px;">
+                        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                            <div style="margin-bottom: 15px;">📊 Dashboard</div>
+                            <div style="margin-bottom: 15px;">🗺️ My Routes</div>
+                            <div style="margin-bottom: 15px;">📅 Schedule</div>
+                            <div style="margin-bottom: 15px;">📝 Reports</div>
+                            <div style="margin-bottom: 15px;">⚙️ Settings</div>
+                        </div>
+                        <div>
+                            <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                                <h4>Current Assignment</h4>
+                                <div style="margin-bottom: 10px;">Route: Nairobi - Mombasa</div>
+                                <div style="margin-bottom: 10px;">Vehicle: Toyota Hiace (KAA 123A)</div>
+                                <div style="margin-bottom: 10px;">Status: In Progress</div>
+                                <button style="background: #4CAF50; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Update Status</button>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                                <h4>Today's Schedule</h4>
+                                <div style="margin-bottom: 10px;">• 08:00 - Start Journey</div>
+                                <div style="margin-bottom: 10px;">• 12:00 - Rest Stop</div>
+                                <div style="margin-bottom: 10px;">• 16:00 - Estimated Arrival</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Driver Route View -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Driver Route View</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Route Details</div>
+                        <div style="display: flex; gap: 10px;">
+                            <button style="background: #2196F3; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Start Journey</button>
+                            <button style="background: #FFA726; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Report Issue</button>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+                        <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                            <div style="height: 300px; background: #e0e0e0; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                                [Map View]
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <div>
+                                    <div style="font-weight: bold;">Start: Nairobi</div>
+                                    <div style="font-weight: bold;">End: Mombasa</div>
+                                </div>
+                                <div>
+                                    <div>Distance: 480 km</div>
+                                    <div>Est. Time: 8 hours</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                                <h4>Weather Alert</h4>
+                                <div>Heavy rain expected in Voi</div>
+                                <div>Recommendation: Reduce speed</div>
+                            </div>
+                            <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                                <h4>Traffic Updates</h4>
+                                <div>Moderate traffic in Athi River</div>
+                                <div>Alternative route available</div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 15px; border-radius: 8px;">
+                                <h4>Waypoints</h4>
+                                <div style="margin-bottom: 10px;">1. Athi River</div>
+                                <div style="margin-bottom: 10px;">2. Voi</div>
+                                <div style="margin-bottom: 10px;">3. Mtito Andei</div>
+                                <div style="margin-bottom: 10px;">4. Mombasa</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Input Form Mockups Section -->
+        <section id="input-mockups">
+            <h2 class="section-title">Input Form Mockups</h2>
+
+            <!-- Admin Vehicle Registration Form -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Vehicle Registration Form</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Register New Vehicle</div>
+                        <button style="background: #4CAF50; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Save Vehicle</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Registration Number</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., KAA 123A">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Make</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., Toyota">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Model</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., Hiace">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Year</label>
+                                <input type="number" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., 2024">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Vehicle Type</label>
+                                <select style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                    <option>Select Type</option>
+                                    <option>Van</option>
+                                    <option>Bus</option>
+                                    <option>Truck</option>
+                                    <option>Car</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Capacity</label>
+                                <input type="number" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., 14">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Initial Status</label>
+                                <select style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                    <option>Active</option>
+                                    <option>Maintenance</option>
+                                    <option>Inactive</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Notes</label>
+                                <textarea style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; height: 100px;" placeholder="Additional information..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Driver Journey Report Form -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Journey Report Form</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Submit Journey Report</div>
+                        <button style="background: #4CAF50; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Submit Report</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Route</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" value="Nairobi - Mombasa" readonly>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Vehicle</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" value="Toyota Hiace (KAA 123A)" readonly>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Start Time</label>
+                                <input type="datetime-local" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">End Time</label>
+                                <input type="datetime-local" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Distance Covered (km)</label>
+                                <input type="number" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., 480">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Fuel Used (liters)</label>
+                                <input type="number" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., 45">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Issues Encountered</label>
+                                <select style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                    <option>None</option>
+                                    <option>Traffic</option>
+                                    <option>Weather</option>
+                                    <option>Vehicle</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Additional Notes</label>
+                                <textarea style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; height: 100px;" placeholder="Describe any issues or observations..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-break"></div>
+
+            <!-- Route Planning Form -->
+            <div class="diagram-container">
+                <h3 class="diagram-title">Route Planning Form</h3>
+                <div class="mockup-container" style="background: white; padding: 20px; border-radius: 8px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <div style="font-size: 24px; font-weight: bold;">Plan New Route</div>
+                        <button style="background: #4CAF50; color: white; padding: 8px 15px; border: none; border-radius: 4px;">Create Route</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Start Location</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., Nairobi">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">End Location</label>
+                                <input type="text" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., Mombasa">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Waypoints</label>
+                                <div style="margin-bottom: 10px;">
+                                    <input type="text" style="width: calc(100% - 40px); padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="Add waypoint">
+                                    <button style="background: #2196F3; color: white; padding: 8px; border: none; border-radius: 4px; width: 30px;">+</button>
+                                </div>
+                                <div style="background: #f5f5f5; padding: 10px; border-radius: 4px;">
+                                    <div style="margin-bottom: 5px;">1. Athi River</div>
+                                    <div style="margin-bottom: 5px;">2. Voi</div>
+                                    <div>3. Mtito Andei</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Preferred Vehicle Type</label>
+                                <select style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                                    <option>Any</option>
+                                    <option>Van</option>
+                                    <option>Bus</option>
+                                    <option>Truck</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Required Capacity</label>
+                                <input type="number" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="e.g., 14">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Schedule</label>
+                                <input type="datetime-local" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Special Requirements</label>
+                                <textarea style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; height: 100px;" placeholder="Any special requirements or notes..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    
+    <!-- Initialize Mermaid -->
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+        });
+    </script>
+</body>
+</html>

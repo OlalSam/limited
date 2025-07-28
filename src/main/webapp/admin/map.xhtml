@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <style>
+            #adminMap {
+                height: 70vh;
+                width: 100%;
+                z-index: 1;
+            }
+           
+        </style>
+        <div class="flex flex-row p-2">
+            <h1>Map</h1>
+            <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+        </div>
+        <p:growl id="growl" showDetail="true"/>
+
+        <h:form id="mapForm">
+            <p:toolbar>
+                <p:outputPanel style="margin-right: 20px">
+                    Connected Vehicles: <span id="vehicleCount">0</span>
+                </p:outputPanel>
+                <p:outputPanel>
+                    Last Update: <span id="lastUpdate">-</span>
+                </p:outputPanel>
+            </p:toolbar>
+
+                <div id="adminMap" class="map-container" ></div>
+        </h:form>
+        
+        
+        <script   src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js" ></script>
+        <h:outputScript library="leaflet" name="leaflet.js"/>
+        <h:outputScript library="js" name="driverMap.js"/>
+        <h:outputScript library="js" name="turf.min.js"/>
+    </ui:define>
+</ui:composition>

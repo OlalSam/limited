@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fleet Management System</title>
+        
+        <!-- Stylesheets -->
+        <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css"/>
+        <h:outputStylesheet library="css" name="basic.css" />
+        <h:outputStylesheet library="leaflet" name="leaflet.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"/>
+    </h:head>
+    
+    <h:body>
+        <!-- Main wrapper - Contains everything -->
+        <div id="wrapper">
+            <!-- Include Sidebar Nav -->
+            <ui:include src="/partial/driverSidenav.xhtml" />
+            
+            <!-- Page Wrapper - Contains all content except sidebar -->
+            <div id="page-wrapper">
+                <!-- Main Content Area -->
+                <div id="page-inner">
+                    <!-- Dynamic Content - Will be replaced with individual page content -->
+                    <ui:insert name="content" />
+                </div>
+                
+                <!-- Footer Section -->
+                <div id="footer-sec" class="mt-auto">
+                    <div>© #{java.time.Year.now().getValue()} Nganya - Fleet Management System</div>
+                    <div><a href="#">Terms</a> | <a href="#">Privacy</a> | <a href="#">Support</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scripts -->
+        <h:outputScript library="leaflet" name="leaflet.js" />
+        <h:outputScript library="js" name="custom.js" />
+        
+        
+    </h:body>
+</html>

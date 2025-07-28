@@ -1,0 +1,109 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/partial/template.xhtml">
+
+  <!-- Page title -->
+  <ui:define name="pageName">
+    <h1 class="text-xl fw-bold">Maintenance Form</h1>
+  </ui:define>
+
+  <ui:define name="content">
+    <div class="maintenance-form-container">
+      <div class="surface-card shadow-2 border-round p-4">
+        <h:form id="maintenanceForm">
+          <div class="p-fluid">
+            <div class="field">
+              <h:outputLabel for="vehicleId" value="Vehicle ID" />
+              <p:selectOneMenu id="vehicleId"
+                         value="#{maintenanceController.newMaintenance.vehicleId}"
+                         styleClass="w-100"
+                         required="true"
+                         requiredMessage="Vehicle ID is required" >
+                  <f:selectItem itemLabel="Select Driver" itemValue="" noSelectionOption="true" />
+              <f:selectItems value="#{maintenanceController.vehicles}" 
+                           var="driver"
+                           itemLabel="#{driver.plateNumber}" 
+                           itemValue="#{driver.id}" />
+              <p:message for="vehicleId" />
+              </p:selectOneMenu>
+            </div>
+
+            <div class="field">
+              <h:outputLabel for="maintenanceDate" value="Maintenance Date" />
+              <p:calendar id="maintenanceDate"
+                        value="#{maintenanceController.newMaintenance.maintenanceDate}"
+                        pattern="yyyy-MM-dd HH:mm"
+                        showOn="button"
+                        styleClass="w-100"
+                        required="true"
+                        requiredMessage="Maintenance Date is required"
+                        timeZone="UTC"
+                        converter="jakarta.faces.DateTimeConverter">
+                <f:convertDateTime pattern="yyyy-MM-dd HH:mm" type="both" />
+              </p:calendar>
+              <p:message for="maintenanceDate" />
+            </div>
+
+            <div class="field">
+              <h:outputLabel for="maintenanceType" value="Maintenance Type" />
+              <p:inputText id="maintenanceType"
+                         value="#{maintenanceController.newMaintenance.maintenanceType}"
+                         styleClass="w-100"
+                         required="true"
+                         requiredMessage="Maintenance Type is required" />
+              <p:message for="maintenanceType" />
+            </div>
+
+            <div class="field">
+              <h:outputLabel for="description" value="Description" />
+              <p:inputTextarea id="description"
+                             value="#{maintenanceController.newMaintenance.description}"
+                             rows="3"
+                             styleClass="w-100"
+                             required="true"
+                             requiredMessage="Description is required" />
+              <p:message for="description" />
+            </div>
+
+            <div class="field">
+              <h:outputLabel for="cost" value="Cost" />
+              <p:inputNumber id="cost"
+                           value="#{maintenanceController.newMaintenance.cost}"
+                           styleClass="w-100"
+                           required="true"
+                           requiredMessage="Cost is required" />
+              <p:message for="cost" />
+            </div>
+
+            <div class="field">
+              <h:outputLabel for="status" value="Status" />
+              <p:selectOneMenu id="status"
+                             value="#{maintenanceController.newMaintenance.status}"
+                             styleClass="w-100"
+                             required="true"
+                             requiredMessage="Status is required">
+                <f:selectItem itemLabel="Pending" itemValue="PENDING" />
+                <f:selectItem itemLabel="Completed" itemValue="COMPLETED" />
+                <f:selectItem itemLabel="Cancelled" itemValue="CANCELLED" />
+              </p:selectOneMenu>
+              <p:message for="status" />
+            </div>
+          </div>
+
+          <div class="flex justify-content-end gap-2 mt-4">
+              <p:link value="Cancel" 
+                             outcome="maintenance"
+                             styleClass="p-button-text" />
+            <p:commandButton value="Save" 
+                           action="#{maintenanceController.addMaintenance}"
+                           styleClass="p-button-primary" />
+          </div>
+        </h:form>
+      </div>
+    </div>
+  </ui:define>
+
+</ui:composition> 

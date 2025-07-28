@@ -1,0 +1,121 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/drivertemplate.xhtml">
+
+  <ui:define name="pageName">
+    <h1 class="text-xl fw-bold">My Route Assignments</h1>
+  </ui:define>
+
+  <ui:define name="content">
+    <!-- Header -->
+    <div class="flex flex-row align-items-center justify-content-between p-2">
+      <div>
+        <div class="page-head-line">My Route Assignments</div>
+      </div>
+      <h:form>
+        <div class="flex gap-2">
+          <p:commandButton icon="pi pi-refresh"
+                           title="Refresh Data"
+                           action="#{routeController.refreshAssignments}"
+                           update=":assignmentsForm:assignmentsTable"
+                           styleClass="btn btn-secondary" />
+        </div>
+      </h:form>
+    </div>
+
+    <!-- Route Assignments DataTable -->
+    <h:form id="assignmentsForm">
+      <h:messages infoClass="alert alert-success"
+                  errorClass="alert alert-danger" />
+
+      <div class="surface-card shadow-2 border-round p-4 overflow-auto">
+        <p:dataTable id="assignmentsTable"
+                     value="#{routeController.routeAssignments}"
+                     var="assignment"
+                     emptyMessage="No assignments found"
+                     styleClass="mt-3">
+
+          <p:column headerText="Date">
+            <h:outputText value="#{assignment.assignmentDate}">
+                <f:convertDateTime pattern="dd-MM-yyyy" type="localDate"/>
+            </h:outputText>
+          </p:column>
+          <p:column headerText="Route">
+            <h:outputText value="#{assignment.routeName}" styleClass="text-sm"/>
+          </p:column>
+          <p:column headerText="Vehicle">
+            <h:outputText value="#{assignment.vehiclePlate}" styleClass="text-sm"/>
+          </p:column>
+          <p:column headerText="Status">
+            <p:tag severity="#{assignment.status eq 'COMPLETED' ? 'success' : 
+                              assignment.status eq 'IN_PROGRESS' ? 'warning' : 
+                              assignment.status eq 'SCHEDULED' ? 'info' : 'secondary'}"
+                  value="#{assignment.status}" />
+          </p:column>
+          <p:column headerText="Actions" rendered="#{assignment.status ne 'COMPLETED'}">
+            <div class="flex gap-2">
+              <p:commandButton icon="pi pi-info-circle"
+                              value="View Route"
+                              styleClass="btn btn-info btn-sm"
+                              action="#{routeController.editRoute(assignment.routeId)}"
+                              update=":routeDetailForm"
+                              oncomplete="PF('routeDetailDialog').show()" />
+            </div>
+          </p:column>
+        </p:dataTable>
+      </div>
+    </h:form>
+
+    <!-- Route Detail Dialog (same as in routes.xhtml) -->
+    <p:dialog id="routeDetailDialog"
+              header="Route Details"
+              widgetVar="routeDetailDialog"
+              modal="true"
+              responsive="true"
+              width="600">
+      <h:form id="routeDetailForm">
+        <div class="p-4">
+          <div class="ui-fluid mb-3">
+            <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
+              <h:outputText value="Route Name:" styleClass="font-bold"/>
+              <h:outputText value="#{routeController.selectedRoute.name}"/>
+              
+              <h:outputText value="Origin:" styleClass="font-bold"/>
+              <h:outputText value="#{routeController.selectedRoute.originStage}"/>
+              
+              <h:outputText value="Destination:" styleClass="font-bold"/>
+              <h:outputText value="#{routeController.selectedRoute.destinationStage}"/>
+              
+              <h:outputText value="Operational Hours:" styleClass="font-bold"/>
+              <h:outputText value="#{routeController.selectedRoute.operationalHours.start} - #{routeController.selectedRoute.operationalHours.end}"/>
+            </p:panelGrid>
+          </div>
+          
+          <div class="mt-4">
+            <h3>Route Stages</h3>
+            <p:dataTable value="#{routeController.selectedRoute.stages}" var="stage" styleClass="mt-2">
+              <p:column headerText="Stage Name">
+                <h:outputText value="#{stage.name}"/>
+              </p:column>
+              <p:column headerText="Latitude">
+                <h:outputText value="#"/>
+              </p:column>
+              <p:column headerText="Longitude">
+                <h:outputText value=""/>
+              </p:column>
+            </p:dataTable>
+          </div>
+        </div>
+        <div class="flex justify-content-end p-3 border-top">
+          <p:commandButton value="Close"
+                         type="button"
+                         styleClass="btn btn-secondary"
+                         onclick="PF('routeDetailDialog').hide()" />
+        </div>
+      </h:form>
+    </p:dialog>
+  </ui:define>
+</ui:composition>

@@ -1,0 +1,78 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <!-- Sidebar Container - Using navbar-side class from CSS -->
+    <div class="navbar-side">
+        <!-- User Profile Section -->
+        <div class="user-img-div">
+            <img src="#{resource['images/Logo.png']}" alt="Logo" />
+            <div class="inner-text">FM Admin</div>
+        </div>
+
+        <!-- Sidebar Menu - Using sidebar-collapse class from CSS -->
+        <div class="sidebar-collapse">
+            <ul class="nav">
+                <li>
+                    <a href="dashboard">
+                        <i class="pi pi-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="drivers">
+                        <i class="pi pi-users"></i>
+                        <span>Drivers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fleet">
+                        <i class="pi pi-car"></i>
+                        <span>Fleet</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="schedule">
+                        <i class="pi pi-calendar"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="map">
+                        <i class="pi pi-map"></i>
+                        <span>Map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics">
+                        <i class="pi pi-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="advanced-analytics">
+                        <i class="pi pi-chart-bar"></i>
+                        <span>Reports </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings">
+                        <i class="pi pi-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-3 p-3 text-center">
+            <h:form>
+                <h:commandLink action="#{login.logout()}" styleClass="btn btn-primary">
+                    <i class="pi pi-power-off"></i>
+                    <span>Logout</span>
+                </h:commandLink>
+            </h:form>
+        </div>
+    </div>
+
+</ui:composition>

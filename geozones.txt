@@ -1,0 +1,2 @@
+cbd topleft(-1.285919, 36.817423) bottomright(-1.285684, 36.835938)
+StageEmbakasi topleft(-1.315585, 36.892297) bottomright(-1.325043, 36.903495)

@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/template.xhtml">
+
+    <!-- Set the page title -->
+    <ui:define name="title">
+        404 Error
+    </ui:define>
+
+    <!-- Main content -->
+    <ui:define name="content">
+        <h:panelGroup style="text-align: center; margin-top: 50px;">
+            <h1>404 - Page Not Found</h1>
+            <p>Sorry, the page you're looking for doesn't exist.</p>
+            <h:link outcome="/admin/dashboard">
+                <h:outputText value="Return to Dashboard" />
+            </h:link>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui"
+      data-bs-theme="dark">
+  <h:head>
+    <title>Fleet Management System – Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous"/>
+    <h:outputStylesheet library="css" name="login.css"/>
+  </h:head>
+  <h:body class="bg-dark text-light">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="card bg-secondary border-0 p-5 shadow-sm" style="max-width: 500px; width: 100%;">
+        <h2 class="text-center mb-4">Sign Up</h2>
+        <h:form>
+          <p:growl id="growl" showDetail="true" life="5000" globalOnly="true" />
+
+          <div class="mb-3">
+            <h:outputLabel for="username" value="Username *" styleClass="form-label text-light"/>
+            <h:inputText id="username" value="#{signup.username}" required="true" requiredMessage="Username is required"
+                         validator="signupValidator"
+                         styleClass="form-control bg-dark text-light border-1 border-secondary">
+              <f:attribute name="fieldName" value="username"/>
+            </h:inputText>
+            <p:message for="username" display="text" />
+          </div>
+
+          <div class="mb-3">
+            <h:outputLabel for="password" value="Password *" styleClass="form-label text-light"/>
+            <h:inputSecret id="password" value="#{signup.password}" required="true" requiredMessage="Password is required"
+                           validator="signupValidator"
+                           styleClass="form-control bg-dark text-light border-1 border-secondary">
+              <f:attribute name="fieldName" value="password"/>
+            </h:inputSecret>
+            <p:message for="password" display="text" />
+          </div>
+
+          <div class="mb-3">
+            <h:outputLabel for="email" value="Email *" styleClass="form-label text-light"/>
+            <h:inputText id="email" value="#{signup.email}" required="true" requiredMessage="Email is required"
+                         validator="signupValidator"
+                         styleClass="form-control bg-dark text-light border-1 border-secondary">
+              <f:attribute name="fieldName" value="email"/>
+            </h:inputText>
+            <p:message for="email" display="text" />
+          </div>
+
+          <div class="mb-4">
+            <h:outputLabel for="role" value="Role *" styleClass="form-label text-light"/>
+            <h:selectOneMenu id="role" value="#{signup.role}" required="true" requiredMessage="Role is required"
+                             validator="signupValidator"
+                             styleClass="form-select bg-dark text-light border-1 border-secondary">
+              <f:selectItem itemValue="" itemLabel="-- Select Role --" noSelectionOption="true"/>
+              <f:selectItem itemValue="ADMIN" itemLabel="ADMIN"/>
+              <f:selectItem itemValue="DRIVER" itemLabel="DRIVER"/>
+              <f:attribute name="fieldName" value="role"/>
+            </h:selectOneMenu>
+            <p:message for="role" display="text" />
+          </div>
+
+          <h:commandButton value="Register" action="#{signup.signup}" styleClass="btn btn-teal w-100 mb-3"/>
+
+          <div class="text-center">
+            <h:link outcome="login" value="Already have an account? Login" styleClass="text-decoration-none text-light"/>
+          </div>
+        </h:form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+  </h:body>
+</html>

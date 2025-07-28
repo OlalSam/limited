@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <div class="surface-card shadow-2 border-round p-4">
+        <div class="flex align-items-center mb-3">
+            <i class="pi pi-car text-xl mr-2"></i>
+            <h3 class="m-0">KPI</h3>
+        </div>
+
+        <div class="grid">
+            <!-- Engine Health -->
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="surface-card border-round p-3">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="text-500">Assigned Vehicle</span>
+                        
+                    </div>
+                    <div class="text-300 font-bold text-xl mb-2">#{driverDashboard.assKpi.vehiclePlate}</div>
+                </div>
+            </div>
+
+            <!-- Operating Hours -->
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="surface-card border-round p-3">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="text-500">Hours Worked</span>
+                        <i class="pi pi-clock text-blue-500"></i>
+                    </div>
+                    <div class="text-300 font-bold text-xl mb-2">#{driverDashboard.hoursToday} hrs</div>
+
+                </div>
+            </div>
+
+            <!-- Current Speed -->
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="surface-card border-round p-3">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="text-500">Upcoming Route</span>
+                        <i class="pi pi-tachometer text-orange-500"></i>
+                    </div>
+                    <div class="text-300 font-bold text-xl mb-2">#{driverDashboard.assKpi.routeName} </div>
+
+                </div>
+            </div>
+
+            <!-- Last Maintenance -->
+            <div class="col-12 md:col-6 lg:col-3">
+                <div class="surface-card border-round p-3">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="text-500">Assignment Date</span>
+                        <i class="pi pi-calendar text-purple-500"></i>
+                    </div>
+                    <div class="text-300 font-bold text-xl mb-2">
+                        <h:outputText value="#{driverDashboard.assKpi.assignmentDate}" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</ui:composition> 

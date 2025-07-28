@@ -1,0 +1,165 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/template.xhtml">
+
+    <ui:define name="content">
+        <!-- Header -->
+        <div class="flex flex-row align-items-center justify-content-between p-2">
+            <div>
+                <div class="page-head-line">Fleet Management</div>
+            </div>
+            <h:form>
+                <div class="flex gap-2 justify-content-between">
+                    
+                    <p:linkButton   value="New Vehicle"
+                                    styleClass="btn btn-primary"
+                                    outcome="/admin/busForm" />
+                </div>
+            </h:form>
+        </div>
+
+        <!-- Fleet DataTable -->
+        <h:form id="fleetForm">
+            <p:growl id="fleetGrowl" severity="info, error, fatal" showDetail="true" life="3000" />
+
+            <div class="surface-card shadow-2 border-round p-4 overflow-auto">
+                <p:dataTable id="fleetTable"
+                             value="#{busController.allVehicles}"
+                             var="bus"
+                             lazy="true"
+                             widgetVar="fleetTable"
+                             paginator="true"
+                             rows="15"
+                             reflow="true"
+                             paginatorPosition="bottom"
+                             styleClass="p-datatable-sm"
+                             scrollable="true"
+                             resizableColumns="true"
+                             paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords}"
+                             rowsPerPageTemplate="5,10,15,{ShowAll|'All'}" >
+
+                    <p:column headerText="Plate Number" sortBy="#{bus.plateNumber}">
+                        <h:outputText value="#{bus.plateNumber}" styleClass="text-sm"/>
+                    </p:column>
+
+                    <p:column headerText="Model" sortBy="#{bus.vehicleModel}">
+                        <h:outputText value="#{bus.vehicleModel}" styleClass="text-sm"/>
+                    </p:column>
+
+                    <p:column headerText="Owner ID" sortBy="#{bus.ownerNationalId}">
+                        <h:outputText value="#{bus.ownerNationalId}" styleClass="text-sm"/>
+                    </p:column>
+
+                    <p:column headerText="Capacity" sortBy="#{bus.capacity}">
+                        <h:outputText value="#{bus.capacity}" styleClass="text-sm"/>
+                    </p:column>
+
+                    <p:column headerText="Sacco" sortBy="#{bus.sacco}">
+                        <h:outputText value="#{bus.sacco}" styleClass="text-sm"/>
+                    </p:column>
+
+                    <p:column headerText="Status" sortBy="#{bus.status}">
+                        <h:outputText value="#{bus.status}" styleClass="text-sm"/>
+                    </p:column>
+
+                    <p:column headerText="Actions" style="width: 150px;">
+                        <div class="flex gap-2 flex-column">
+                            <p:commandButton icon="pi pi-pencil"
+                                             value="Edit"
+                                             styleClass="btn btn-primary btn-sm"
+                                             action="#{busController.editVehicle(bus.plateNumber)}"
+                                             update=":busEditForm"
+                                             oncomplete="PF('editDialog').show()"
+                                             process="@this" />
+                            <p:commandButton icon="pi pi-trash"
+                                             value="Delete"
+                                             styleClass="btn btn-danger btn-sm"
+                                             action="#{busController.deleteVehicle(bus.plateNumber)}"
+                                             update="fleetTable fleetGrowl"
+                                             process="@this">
+                                <p:confirm message="Are you sure you want to delete this vehicle?" />
+                            </p:commandButton>
+                        </div>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+        </h:form>
+
+        <!-- Confirmation Dialog -->
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat ui-button-secondary" icon="pi pi-times" />
+        </p:confirmDialog>
+
+        <!-- Edit Vehicle Dialog -->
+        <p:dialog id="editDialog"
+                  header="Edit Vehicle"
+                  widgetVar="editDialog"
+                  width="600"
+                  modal="true"
+                  closable="true">
+            <h:form id="busEditForm">
+                <div class="p-4">
+                    <div class="mb-3">
+                        <h:outputLabel for="plateNumber"
+                                       value="Plate Number:"
+                                       styleClass="label" />
+                        <p:inputText id="plateNumber"
+                                     value="#{busController.selectedBus.plateNumber}"
+                                     disabled="true"
+                                     styleClass="form-control w-100" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="model"
+                                       value="Model:"
+                                       styleClass="label" />
+                        <p:inputText id="model"
+                                     value="#{busController.selectedBus.vehicleModel}"
+                                     styleClass="form-control w-100" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="capacity"
+                                       value="Capacity:"
+                                       styleClass="label" />
+                        <p:inputText id="capacity"
+                                     value="#{busController.selectedBus.capacity}"
+                                     styleClass="form-control w-100" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="ownerId"
+                                       value="Owner ID:"
+                                       styleClass="label" />
+                        <p:inputText id="ownerId"
+                                     value="#{busController.selectedBus.ownerNationalId}"
+                                     styleClass="form-control w-100" />
+                    </div>
+                    <div class="mb-3">
+                        <h:outputLabel for="sacco"
+                                       value="Sacco:"
+                                       styleClass="label" />
+                        <p:inputText id="sacco"
+                                     value="#{busController.selectedBus.sacco}"
+                                     styleClass="form-control w-100" />
+                    </div>
+                </div>
+                <div class="flex justify-content-end p-3 border-top">
+                    <p:commandButton value="Save"
+                                     styleClass="btn btn-primary"
+                                     action="#{busController.updateVehicle}"
+                                     update=":busEditForm fleetForm:fleetTable"
+                                     oncomplete="PF('editDialog').hide()" />
+                    <p:commandButton value="Cancel"
+                                     type="button"
+                                     styleClass="btn btn-secondary ml-2"
+                                     onclick="PF('editDialog').hide()" />
+                </div>
+            </h:form>
+        </p:dialog>
+
+    </ui:define>
+</ui:composition>

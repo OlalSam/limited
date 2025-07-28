@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/drivertemplate.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <style>
+            #driverMap {
+                height: 70vh;
+                width: 100%;
+                z-index: 1;
+            }
+
+        </style>
+        <h:outputScript>
+            window.driverUsername = "#{dashboard.userName}";
+            window.markerImageUrl = "#{resource['images/redbus.png']}";
+        </h:outputScript>
+        <div class="flex flex-row p-2">
+            <h1>Map</h1>
+            <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+        </div>
+         
+        <h:form id="mapForm">
+            <p:toolbar>
+                <p:outputPanel style="margin-right: 20px">
+                    Connected Vehicles: <span id="vehicleCount">0</span>
+                </p:outputPanel>
+                <p:outputPanel>
+                    Last Update: <span id="lastUpdate">-</span>
+                </p:outputPanel>
+            </p:toolbar>
+
+            <div id="driverMap" class="map-container" ></div>
+        </h:form>
+
+        <p:dialog id="driverInfoDialog" widgetVar="driverInfoDialog" 
+                  header="Driver Information" modal="true" resizable="false" width="400">
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Username:" />
+                <h:outputText id="modal-username" value="" />
+
+                <h:outputText value="First Name:" />
+                <h:outputText id="modal-firstName" value="" />
+
+                <h:outputText value="Last Name:" />
+                <h:outputText id="modal-lastName" value="" />
+
+                <h:outputText value="Vehicle Plate:" />
+                <h:outputText id="modal-vehiclePlate" value="" />
+
+                <h:outputText value="Vehicle Model:" />
+                <h:outputText id="modal-vehicleModel" value="" />
+            </h:panelGrid>
+
+            <f:facet name="footer">
+                <p:commandButton value="Close" onclick="PF('driverInfoDialog').hide()" />
+            </f:facet>
+        </p:dialog>
+        <script   src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js" ></script>
+        <h:outputScript library="leaflet" name="leaflet.js"/>
+        <h:outputScript library="js" name="driverMap.js"/>
+        <h:outputScript library="js" name="turf.min.js"/>
+    </ui:define>
+</ui:composition>

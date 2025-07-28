@@ -1,0 +1,204 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <style>
+            #map {
+                height: 50vh;
+                width: 100%;
+                z-index: 1;
+            }
+
+        </style>
+        <h:outputScript>
+            window.outZonecar = "#{resource['images/car-out-zone.png']}";
+            window.inZonecar = "#{resource['images/redbus.png']}";
+        </h:outputScript>
+        <div class="flex flex-row p-2">
+        <div class="page-head-line">Dashboard</div>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+
+        </div>
+        <div class="flex flex-column flex-auto">
+            <div class="p-2 min-h-full">
+                <div class="grid h-full">
+                   <div class="col-12 md:col-6 lg:col-3">
+                    <div class="surface-card shadow-2 p-4 border-round text-center">
+                      <h4 class="m-0 fs-lg text-gray-600 flex align-items-center justify-content-center gap-2">
+                        <i class="fa fa-truck"></i>
+                        Total Vehicles
+                      </h4>
+                      <p class="m-0 mt-1 fs-xl fw-bold text-primary">
+                        #{dashboard.totalVehicles}
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Active Vehicles KPI -->
+                  <div class="col-12 md:col-6 lg:col-3">
+                    <div class="surface-card shadow-2 p-4 border-round text-center">
+                      <h4 class="m-0 fs-lg text-gray-600 flex align-items-center justify-content-center gap-2">
+                        <i class="fa fa-bolt"></i>
+                        Active Vehicles
+                      </h4>
+                      <p class="m-0 mt-1 fs-xl fw-bold text-accent">
+                        #{dashboard.availablvehicles}
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Routes KPI -->
+                  <div class="col-12 md:col-6 lg:col-3">
+                    <div class="surface-card shadow-2 p-4 border-round text-center">
+                      <h4 class="m-0 fs-lg text-gray-600 flex align-items-center justify-content-center gap-2">
+                        <i class="fa fa-route"></i>
+                        Routes
+                      </h4>
+                      <p class="m-0 mt-1 fs-xl fw-bold text-primary">
+                        #{dashboard.totalRoutes}
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Drivers KPI -->
+                  <div class="col-12 md:col-6 lg:col-3">
+                    <div class="surface-card shadow-2 p-4 border-round text-center">
+                      <h4 class="m-0 fs-lg text-gray-600 flex align-items-center justify-content-center gap-2">
+                        <i class="fa fa-user"></i>
+                        Drivers
+                      </h4>
+                      <p class="m-0 mt-1 fs-xl fw-bold text-accent">
+                        #{dashboard.totalDrivers}
+                      </p>
+                    </div>
+                  </div>
+
+                    <div class="col-12 lg:col-6">
+                        <div class="surface-card shadow-2 border-round p-3">
+                            <h3  class="p-0 m-0   ">Map</h3>
+                            <h:form id="mapForm">
+
+                                <p:toolbar>
+                                    <p:outputPanel style="margin-right: 20px">
+                                        Connected Vehicles: <span id="vehicleCount">0</span>
+                                    </p:outputPanel>
+                                    <p:outputPanel>
+                                        Last Update: <span id="lastUpdate">-</span>
+                                    </p:outputPanel>
+                                </p:toolbar>
+
+                                <div id="adminMap" class="map-container" ></div>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class="col-12 lg:col-6"> 
+                        <div class="surface-card shadow-2 border-round p-4">
+                            Weather Forecast
+                            <p:lineChart model="#{weatherForecast.weatherChart}" style="width:100%; height:53vh;" />
+
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="surface-card shadow-2 border-round p-4">
+                            <h:form id="driversForm">
+                                <p:dataTable id="driversTable" value="#{driverController}" var="driver" 
+                                             paginator="true" reflow="true" lazy="true" rows="5"
+                                             paginatorPosition="bottom" >
+
+                                    <p:column headerText="Username">
+                                        <h:outputText value="#{driver.username}" styleClass="text-sm "/>
+                                    </p:column>
+
+                                    <p:column headerText="First Name">
+                                        <h:outputText value="#{driver.firstName}" styleClass="text-sm"/>
+                                    </p:column>
+
+                                    <p:column headerText="Second Name">
+                                        <h:outputText value="#{driver.secondName}" styleClass="text-sm"/>
+                                    </p:column>
+
+                                    <p:column headerText="Email">
+                                        <h:outputText value="#{driver.email}" styleClass="text-sm"/>
+                                    </p:column>
+
+                                    <p:column headerText="Role">
+                                        <h:outputText value="#{driver.role}" styleClass="text-sm"/>
+                                    </p:column>
+
+                                    <p:column headerText="Phone Number">
+                                        <h:outputText value="#{driver.phoneNumber}" styleClass="text-sm"/>
+                                    </p:column>
+
+                                    <p:column headerText="Driver Licence">
+                                        <h:outputText value="#{driver.driverLicence}" styleClass="text-sm"/>
+                                    </p:column>
+
+                                    <p:column headerText="Status">
+                                        <h:outputText value="#{driver.status}" styleClass="px-2 py-1 text-sm border-round"
+                                                      style="background-color: #{driver.status == 'Active' ? 'var(--green-100)' : 'var(--red-100)'}; color: #{driver.status == 'Active' ? 'var(--green-800)' : 'var(--red-800)'}"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </h:form>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="surface-card shadow-2 border-round p-4">
+                            <p:dataTable value="#{analyticsController.detailedAnalytics}" var="analytic"
+                            paginator="true" rows="5" paginatorPosition="bottom">
+                    <p:column headerText="Date" sortBy="#{analytic.date}">
+                        <h:outputText value="#{analytic.date}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Route" sortBy="#{analytic.route}">
+                        #{analytic.route}
+                    </p:column>
+                    <p:column headerText="Trips" sortBy="#{analytic.trips}">
+                        #{analytic.trips}
+                    </p:column>
+                    <p:column headerText="Revenue" sortBy="#{analytic.revenue}">
+                        KES #{analytic.revenue}
+                    </p:column>
+                    <p:column headerText="Profit" sortBy="#{analytic.profit}">
+                        KES #{analytic.profit}
+                    </p:column>
+                </p:dataTable>
+                        </div>
+                    </div>
+
+                  <p:dialog id="driverInfoDialog" widgetVar="driverInfoDialog" 
+                            header="Driver Information" modal="true" resizable="false" width="400">
+                      <h:panelGrid columns="2" cellpadding="5">
+                          <h:outputText value="Username:" />
+                          <h:outputText id="modal-username" value="" />
+
+                          <h:outputText value="First Name:" />
+                          <h:outputText id="modal-firstName" value="" />
+
+                          <h:outputText value="Last Name:" />
+                          <h:outputText id="modal-lastName" value="" />
+
+                          <h:outputText value="Vehicle Plate:" />
+                          <h:outputText id="modal-vehiclePlate" value="" />
+
+                          <h:outputText value="Vehicle Model:" />
+                          <h:outputText id="modal-vehicleModel" value="" />
+                      </h:panelGrid>
+
+                      <f:facet name="footer">
+                          <p:commandButton value="Close" onclick="PF('driverInfoDialog').hide()" />
+                      </f:facet>
+                  </p:dialog>
+                </div>
+            </div>
+        </div>
+        <script   src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js" ></script>
+        <h:outputScript library="leaflet" name="leaflet.js"/>
+        <h:outputScript library="js" name="driverMap.js"/>
+        <h:outputScript library="js" name="turf.min.js"/>
+    </ui:define>
+</ui:composition>

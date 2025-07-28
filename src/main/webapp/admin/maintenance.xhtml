@@ -1,0 +1,110 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/partial/template.xhtml">
+
+  <!-- Page title -->
+  <ui:define name="pageName">
+    <h1 class="text-xl fw-bold">Maintenance</h1>
+  </ui:define>
+
+  <ui:define name="content">
+    <div class="maintenance-container">
+      <!-- Top Bar with Actions -->
+      <div class="surface-card shadow-2 border-round p-3 mb-3">
+        <div class="flex align-items-center justify-content-between">
+          <div class="flex align-items-center">
+            <h2 class="m-0 text-xl">Maintenance Management</h2>
+            <span class="ml-3 text-500">Manage vehicle maintenance records</span>
+          </div>
+          <div class="flex gap-2">
+            <p:commandButton value="New Maintenance" 
+                           icon="pi pi-plus"
+                           action="#{maintenanceController.addMaintenance}"
+                           styleClass="p-button-primary" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="grid">
+        <!-- Maintenance Records Table -->
+        <div class="col-12">
+          <div class="surface-card shadow-2 border-round p-4">
+            <h:form id="maintenanceForm">
+              <p:dataTable id="maintenanceTable"
+                         value="#{maintenanceController.maintenanceHistory}"
+                         var="maintenance"
+                         paginator="true"
+                         rows="5"
+                         reflow="true"
+                         paginatorPosition="bottom"
+                         styleClass="p-datatable-sm"
+                         scrollable="true"
+                         resizableColumns="true"
+                         paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords}"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+
+                <p:column headerText="Vehicle ID" sortBy="#{maintenance.vehicleId}" filterBy="#{maintenance.vehicleId}" filterMatchMode="contains">
+                  <h:outputText value="#{maintenance.vehicleId}" />
+                </p:column>
+
+                <p:column headerText="Maintenance Date" sortBy="#{maintenance.maintenanceDate}">
+                  <h:outputText value="#{maintenance.maintenanceDate}">
+                    <f:convertDateTime pattern="yyyy-MM-dd HH:mm" type="both" timeZone="UTC" />
+                  </h:outputText>
+                </p:column>
+
+                <p:column headerText="Type" sortBy="#{maintenance.maintenanceType}" filterBy="#{maintenance.maintenanceType}" filterMatchMode="contains">
+                  <h:outputText value="#{maintenance.maintenanceType}" />
+                </p:column>
+
+                <p:column headerText="Description" sortBy="#{maintenance.description}" filterBy="#{maintenance.description}" filterMatchMode="contains">
+                  <h:outputText value="#{maintenance.description}" />
+                </p:column>
+
+                <p:column headerText="Cost" sortBy="#{maintenance.cost}">
+                  <h:outputText value="#{maintenance.cost}">
+                    <f:convertNumber type="currency" currencySymbol="$" />
+                  </h:outputText>
+                </p:column>
+
+                <p:column headerText="Status" sortBy="#{maintenance.status}">
+                  <p:tag value="#{maintenance.status}"
+                        severity="#{maintenance.status eq 'COMPLETED' ? 'success' : 
+            maintenance.status eq 'PENDING' ? 'warning' : 'info'}" />
+                </p:column>
+
+                <p:column style="width:80px">
+                  <div class="flex gap-2">
+                    <p:commandButton icon="pi pi-pencil"
+                                   styleClass="p-button-rounded p-button-text"
+                                   action="#{maintenanceController.editMaintenance(maintenance.maintenanceId)}"
+                                   update="maintenanceTable" />
+                    <p:commandButton icon="pi pi-trash"
+                                   styleClass="p-button-danger p-button-rounded p-button-text"
+                                   action="#{maintenanceController.deleteMaintenance(maintenance.maintenanceId)}"
+                                   update="maintenanceTable">
+                      <p:confirm message="Are you sure you want to delete this maintenance record?" 
+                                icon="pi pi-exclamation-triangle" />
+                    </p:commandButton>
+                  </div>
+                </p:column>
+              </p:dataTable>
+            </h:form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true">
+      <p:commandButton value="Yes" type="button" styleClass="p-confirm-dialog-accept p-button-text" />
+      <p:commandButton value="No" type="button" styleClass="p-confirm-dialog-reject p-button-text p-button-secondary" />
+    </p:confirmDialog>
+  </ui:define>
+
+</ui:composition> 

@@ -1,0 +1,2247 @@
+{
+    "roadName": "Thika Road",
+    "startCoordinates": {
+        "latitude": -1.2571,
+        "longitude": 36.8168
+    },
+    "endCoordinates": {
+        "latitude": -1.1452,
+        "longitude": 36.9664
+    },
+    "periodStart": "2025-02-23T00:00:00Z",
+    "periodEnd": "2025-03-25T23:59:59Z",
+    "data": [
+        {
+            "timestamp": "2025-02-23T07:00:00Z",
+            "congestionLevel": 0.44,
+            "averageSpeed": 37.6,
+            "travelTimeMinutes": 31.9,
+            "freeFlowSpeed": 66.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T08:00:00Z",
+            "congestionLevel": 0.4,
+            "averageSpeed": 39.5,
+            "travelTimeMinutes": 30.4,
+            "freeFlowSpeed": 66.2,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T09:00:00Z",
+            "congestionLevel": 0.63,
+            "averageSpeed": 28.8,
+            "travelTimeMinutes": 41.6,
+            "freeFlowSpeed": 77.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T12:00:00Z",
+            "congestionLevel": 0.8,
+            "averageSpeed": 13.5,
+            "travelTimeMinutes": 89.0,
+            "freeFlowSpeed": 67.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T13:00:00Z",
+            "congestionLevel": 0.43,
+            "averageSpeed": 37.7,
+            "travelTimeMinutes": 31.8,
+            "freeFlowSpeed": 65.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T17:00:00Z",
+            "congestionLevel": 0.28,
+            "averageSpeed": 54.0,
+            "travelTimeMinutes": 22.2,
+            "freeFlowSpeed": 74.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T18:00:00Z",
+            "congestionLevel": 0.46,
+            "averageSpeed": 35.9,
+            "travelTimeMinutes": 33.4,
+            "freeFlowSpeed": 66.4,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-23T19:00:00Z",
+            "congestionLevel": 0.56,
+            "averageSpeed": 27.3,
+            "travelTimeMinutes": 43.9,
+            "freeFlowSpeed": 62.1,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-02-24T07:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1614.8,
+            "freeFlowSpeed": 74.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T08:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 7.9,
+            "travelTimeMinutes": 152.1,
+            "freeFlowSpeed": 72.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T09:00:00Z",
+            "congestionLevel": 0.95,
+            "averageSpeed": 4.0,
+            "travelTimeMinutes": 296.4,
+            "freeFlowSpeed": 79.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T12:00:00Z",
+            "congestionLevel": 0.39,
+            "averageSpeed": 48.5,
+            "travelTimeMinutes": 24.7,
+            "freeFlowSpeed": 79.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T13:00:00Z",
+            "congestionLevel": 0.62,
+            "averageSpeed": 24.0,
+            "travelTimeMinutes": 49.9,
+            "freeFlowSpeed": 64.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T17:00:00Z",
+            "congestionLevel": 0.83,
+            "averageSpeed": 10.5,
+            "travelTimeMinutes": 113.9,
+            "freeFlowSpeed": 61.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T18:00:00Z",
+            "congestionLevel": 0.93,
+            "averageSpeed": 5.1,
+            "travelTimeMinutes": 233.1,
+            "freeFlowSpeed": 70.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-24T19:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1635.3,
+            "freeFlowSpeed": 73.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T07:00:00Z",
+            "congestionLevel": 0.91,
+            "averageSpeed": 5.5,
+            "travelTimeMinutes": 218.9,
+            "freeFlowSpeed": 61.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T08:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 11.2,
+            "travelTimeMinutes": 107.4,
+            "freeFlowSpeed": 60.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T09:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1749.3,
+            "freeFlowSpeed": 68.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T12:00:00Z",
+            "congestionLevel": 0.33,
+            "averageSpeed": 46.4,
+            "travelTimeMinutes": 25.9,
+            "freeFlowSpeed": 69.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T13:00:00Z",
+            "congestionLevel": 0.36,
+            "averageSpeed": 38.4,
+            "travelTimeMinutes": 31.3,
+            "freeFlowSpeed": 60.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T17:00:00Z",
+            "congestionLevel": 0.85,
+            "averageSpeed": 10.2,
+            "travelTimeMinutes": 117.4,
+            "freeFlowSpeed": 69.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T18:00:00Z",
+            "congestionLevel": 0.95,
+            "averageSpeed": 3.1,
+            "travelTimeMinutes": 385.0,
+            "freeFlowSpeed": 63.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-25T19:00:00Z",
+            "congestionLevel": 0.87,
+            "averageSpeed": 8.1,
+            "travelTimeMinutes": 148.8,
+            "freeFlowSpeed": 60.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T07:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 6.8,
+            "travelTimeMinutes": 175.2,
+            "freeFlowSpeed": 68.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T08:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 6.4,
+            "travelTimeMinutes": 189.0,
+            "freeFlowSpeed": 61.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T09:00:00Z",
+            "congestionLevel": 0.92,
+            "averageSpeed": 4.8,
+            "travelTimeMinutes": 250.2,
+            "freeFlowSpeed": 62.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T12:00:00Z",
+            "congestionLevel": 0.47,
+            "averageSpeed": 35.8,
+            "travelTimeMinutes": 33.5,
+            "freeFlowSpeed": 68.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T13:00:00Z",
+            "congestionLevel": 0.42,
+            "averageSpeed": 40.7,
+            "travelTimeMinutes": 29.5,
+            "freeFlowSpeed": 70.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T17:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 7.7,
+            "travelTimeMinutes": 154.9,
+            "freeFlowSpeed": 78.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T18:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 8.3,
+            "travelTimeMinutes": 144.6,
+            "freeFlowSpeed": 76.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-26T19:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1691.1,
+            "freeFlowSpeed": 71.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T07:00:00Z",
+            "congestionLevel": 0.92,
+            "averageSpeed": 5.2,
+            "travelTimeMinutes": 232.9,
+            "freeFlowSpeed": 66.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T08:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.5,
+            "travelTimeMinutes": 268.9,
+            "freeFlowSpeed": 78.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T09:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.8,
+            "travelTimeMinutes": 248.4,
+            "freeFlowSpeed": 74.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T12:00:00Z",
+            "congestionLevel": 0.3,
+            "averageSpeed": 42.5,
+            "travelTimeMinutes": 28.2,
+            "freeFlowSpeed": 60.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T13:00:00Z",
+            "congestionLevel": 0.44,
+            "averageSpeed": 39.0,
+            "travelTimeMinutes": 30.8,
+            "freeFlowSpeed": 69.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T17:00:00Z",
+            "congestionLevel": 0.96,
+            "averageSpeed": 3.1,
+            "travelTimeMinutes": 387.3,
+            "freeFlowSpeed": 77.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T18:00:00Z",
+            "congestionLevel": 0.84,
+            "averageSpeed": 11.7,
+            "travelTimeMinutes": 102.5,
+            "freeFlowSpeed": 75.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-27T19:00:00Z",
+            "congestionLevel": 0.75,
+            "averageSpeed": 15.5,
+            "travelTimeMinutes": 77.6,
+            "freeFlowSpeed": 62.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T07:00:00Z",
+            "congestionLevel": 0.92,
+            "averageSpeed": 5.4,
+            "travelTimeMinutes": 221.8,
+            "freeFlowSpeed": 67.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T08:00:00Z",
+            "congestionLevel": 0.71,
+            "averageSpeed": 20.3,
+            "travelTimeMinutes": 59.0,
+            "freeFlowSpeed": 69.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T09:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 7.6,
+            "travelTimeMinutes": 157.2,
+            "freeFlowSpeed": 66.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T12:00:00Z",
+            "congestionLevel": 0.73,
+            "averageSpeed": 20.8,
+            "travelTimeMinutes": 57.8,
+            "freeFlowSpeed": 76.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T13:00:00Z",
+            "congestionLevel": 0.48,
+            "averageSpeed": 33.6,
+            "travelTimeMinutes": 35.7,
+            "freeFlowSpeed": 65.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T17:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1644.1,
+            "freeFlowSpeed": 73.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T18:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1621.3,
+            "freeFlowSpeed": 74.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-02-28T19:00:00Z",
+            "congestionLevel": 0.91,
+            "averageSpeed": 6.9,
+            "travelTimeMinutes": 173.6,
+            "freeFlowSpeed": 79.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-01T07:00:00Z",
+            "congestionLevel": 0.26,
+            "averageSpeed": 45.8,
+            "travelTimeMinutes": 26.2,
+            "freeFlowSpeed": 61.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T08:00:00Z",
+            "congestionLevel": 0.65,
+            "averageSpeed": 23.6,
+            "travelTimeMinutes": 50.8,
+            "freeFlowSpeed": 66.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T09:00:00Z",
+            "congestionLevel": 0.46,
+            "averageSpeed": 32.7,
+            "travelTimeMinutes": 36.7,
+            "freeFlowSpeed": 60.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T12:00:00Z",
+            "congestionLevel": 0.43,
+            "averageSpeed": 38.3,
+            "travelTimeMinutes": 31.3,
+            "freeFlowSpeed": 66.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T13:00:00Z",
+            "congestionLevel": 0.22,
+            "averageSpeed": 49.9,
+            "travelTimeMinutes": 24.1,
+            "freeFlowSpeed": 63.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T17:00:00Z",
+            "congestionLevel": 0.34,
+            "averageSpeed": 49.6,
+            "travelTimeMinutes": 24.2,
+            "freeFlowSpeed": 74.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T18:00:00Z",
+            "congestionLevel": 0.42,
+            "averageSpeed": 42.6,
+            "travelTimeMinutes": 28.2,
+            "freeFlowSpeed": 73.6,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-01T19:00:00Z",
+            "congestionLevel": 0.47,
+            "averageSpeed": 32.6,
+            "travelTimeMinutes": 36.9,
+            "freeFlowSpeed": 61.3,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T07:00:00Z",
+            "congestionLevel": 0.46,
+            "averageSpeed": 39.4,
+            "travelTimeMinutes": 30.5,
+            "freeFlowSpeed": 72.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T08:00:00Z",
+            "congestionLevel": 0.45,
+            "averageSpeed": 41.2,
+            "travelTimeMinutes": 29.1,
+            "freeFlowSpeed": 75.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T09:00:00Z",
+            "congestionLevel": 0.8,
+            "averageSpeed": 13.5,
+            "travelTimeMinutes": 89.2,
+            "freeFlowSpeed": 68.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T12:00:00Z",
+            "congestionLevel": 0.47,
+            "averageSpeed": 35.3,
+            "travelTimeMinutes": 34.0,
+            "freeFlowSpeed": 65.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T13:00:00Z",
+            "congestionLevel": 0.21,
+            "averageSpeed": 61.3,
+            "travelTimeMinutes": 19.6,
+            "freeFlowSpeed": 77.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T17:00:00Z",
+            "congestionLevel": 0.48,
+            "averageSpeed": 41.6,
+            "travelTimeMinutes": 28.9,
+            "freeFlowSpeed": 79.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T18:00:00Z",
+            "congestionLevel": 0.31,
+            "averageSpeed": 49.9,
+            "travelTimeMinutes": 24.0,
+            "freeFlowSpeed": 72.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-02T19:00:00Z",
+            "congestionLevel": 0.39,
+            "averageSpeed": 43.5,
+            "travelTimeMinutes": 27.6,
+            "freeFlowSpeed": 70.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-03T07:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 12.0,
+            "travelTimeMinutes": 99.7,
+            "freeFlowSpeed": 68.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T08:00:00Z",
+            "congestionLevel": 0.84,
+            "averageSpeed": 11.4,
+            "travelTimeMinutes": 105.4,
+            "freeFlowSpeed": 70.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T09:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1560.8,
+            "freeFlowSpeed": 76.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T12:00:00Z",
+            "congestionLevel": 0.58,
+            "averageSpeed": 31.2,
+            "travelTimeMinutes": 38.5,
+            "freeFlowSpeed": 74.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T13:00:00Z",
+            "congestionLevel": 0.45,
+            "averageSpeed": 34.3,
+            "travelTimeMinutes": 35.0,
+            "freeFlowSpeed": 62.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T17:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.8,
+            "travelTimeMinutes": 249.7,
+            "freeFlowSpeed": 75.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T18:00:00Z",
+            "congestionLevel": 0.85,
+            "averageSpeed": 10.0,
+            "travelTimeMinutes": 119.8,
+            "freeFlowSpeed": 67.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-03T19:00:00Z",
+            "congestionLevel": 0.97,
+            "averageSpeed": 2.1,
+            "travelTimeMinutes": 560.1,
+            "freeFlowSpeed": 64.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T07:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 14.5,
+            "travelTimeMinutes": 82.7,
+            "freeFlowSpeed": 77.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T08:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 8.1,
+            "travelTimeMinutes": 147.9,
+            "freeFlowSpeed": 65.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T09:00:00Z",
+            "congestionLevel": 0.77,
+            "averageSpeed": 14.3,
+            "travelTimeMinutes": 83.7,
+            "freeFlowSpeed": 62.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T12:00:00Z",
+            "congestionLevel": 0.36,
+            "averageSpeed": 38.9,
+            "travelTimeMinutes": 30.9,
+            "freeFlowSpeed": 61.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T13:00:00Z",
+            "congestionLevel": 0.47,
+            "averageSpeed": 41.6,
+            "travelTimeMinutes": 28.9,
+            "freeFlowSpeed": 78.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T17:00:00Z",
+            "congestionLevel": 0.86,
+            "averageSpeed": 8.8,
+            "travelTimeMinutes": 136.6,
+            "freeFlowSpeed": 63.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T18:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1688.9,
+            "freeFlowSpeed": 71.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-04T19:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 7.6,
+            "travelTimeMinutes": 157.3,
+            "freeFlowSpeed": 72.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T07:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 13.9,
+            "travelTimeMinutes": 86.2,
+            "freeFlowSpeed": 72.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T08:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1531.3,
+            "freeFlowSpeed": 78.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T09:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1693.4,
+            "freeFlowSpeed": 70.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T12:00:00Z",
+            "congestionLevel": 0.31,
+            "averageSpeed": 52.4,
+            "travelTimeMinutes": 22.9,
+            "freeFlowSpeed": 75.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T13:00:00Z",
+            "congestionLevel": 0.4,
+            "averageSpeed": 43.7,
+            "travelTimeMinutes": 27.5,
+            "freeFlowSpeed": 73.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T17:00:00Z",
+            "congestionLevel": 0.84,
+            "averageSpeed": 12.6,
+            "travelTimeMinutes": 95.2,
+            "freeFlowSpeed": 77.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T18:00:00Z",
+            "congestionLevel": 0.93,
+            "averageSpeed": 5.2,
+            "travelTimeMinutes": 231.9,
+            "freeFlowSpeed": 76.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-05T19:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 8.8,
+            "travelTimeMinutes": 136.1,
+            "freeFlowSpeed": 79.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T07:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 11.7,
+            "travelTimeMinutes": 102.8,
+            "freeFlowSpeed": 63.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T08:00:00Z",
+            "congestionLevel": 0.73,
+            "averageSpeed": 20.5,
+            "travelTimeMinutes": 58.5,
+            "freeFlowSpeed": 75.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T09:00:00Z",
+            "congestionLevel": 0.96,
+            "averageSpeed": 2.9,
+            "travelTimeMinutes": 416.6,
+            "freeFlowSpeed": 66.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T12:00:00Z",
+            "congestionLevel": 0.73,
+            "averageSpeed": 18.5,
+            "travelTimeMinutes": 64.8,
+            "freeFlowSpeed": 69.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T13:00:00Z",
+            "congestionLevel": 0.39,
+            "averageSpeed": 37.2,
+            "travelTimeMinutes": 32.3,
+            "freeFlowSpeed": 61.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T17:00:00Z",
+            "congestionLevel": 0.93,
+            "averageSpeed": 4.7,
+            "travelTimeMinutes": 256.7,
+            "freeFlowSpeed": 62.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T18:00:00Z",
+            "congestionLevel": 0.8,
+            "averageSpeed": 14.6,
+            "travelTimeMinutes": 81.9,
+            "freeFlowSpeed": 74.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-06T19:00:00Z",
+            "congestionLevel": 0.97,
+            "averageSpeed": 2.3,
+            "travelTimeMinutes": 516.5,
+            "freeFlowSpeed": 66.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T07:00:00Z",
+            "congestionLevel": 0.86,
+            "averageSpeed": 10.5,
+            "travelTimeMinutes": 114.2,
+            "freeFlowSpeed": 77.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T08:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.5,
+            "travelTimeMinutes": 265.3,
+            "freeFlowSpeed": 70.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T09:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 7.9,
+            "travelTimeMinutes": 151.9,
+            "freeFlowSpeed": 64.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T12:00:00Z",
+            "congestionLevel": 0.5,
+            "averageSpeed": 34.3,
+            "travelTimeMinutes": 35.0,
+            "freeFlowSpeed": 68.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T13:00:00Z",
+            "congestionLevel": 0.5,
+            "averageSpeed": 33.2,
+            "travelTimeMinutes": 36.1,
+            "freeFlowSpeed": 66.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T17:00:00Z",
+            "congestionLevel": 0.8,
+            "averageSpeed": 15.3,
+            "travelTimeMinutes": 78.6,
+            "freeFlowSpeed": 74.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T18:00:00Z",
+            "congestionLevel": 0.87,
+            "averageSpeed": 9.2,
+            "travelTimeMinutes": 130.2,
+            "freeFlowSpeed": 68.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-07T19:00:00Z",
+            "congestionLevel": 0.91,
+            "averageSpeed": 7.2,
+            "travelTimeMinutes": 167.1,
+            "freeFlowSpeed": 76.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-08T07:00:00Z",
+            "congestionLevel": 0.25,
+            "averageSpeed": 59.1,
+            "travelTimeMinutes": 20.3,
+            "freeFlowSpeed": 79.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T08:00:00Z",
+            "congestionLevel": 0.36,
+            "averageSpeed": 39.1,
+            "travelTimeMinutes": 30.7,
+            "freeFlowSpeed": 61.6,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T09:00:00Z",
+            "congestionLevel": 0.52,
+            "averageSpeed": 36.2,
+            "travelTimeMinutes": 33.2,
+            "freeFlowSpeed": 74.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T12:00:00Z",
+            "congestionLevel": 0.77,
+            "averageSpeed": 16.1,
+            "travelTimeMinutes": 74.6,
+            "freeFlowSpeed": 70.6,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T13:00:00Z",
+            "congestionLevel": 0.48,
+            "averageSpeed": 31.6,
+            "travelTimeMinutes": 38.0,
+            "freeFlowSpeed": 60.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T17:00:00Z",
+            "congestionLevel": 0.34,
+            "averageSpeed": 48.1,
+            "travelTimeMinutes": 25.0,
+            "freeFlowSpeed": 72.3,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T18:00:00Z",
+            "congestionLevel": 0.65,
+            "averageSpeed": 27.3,
+            "travelTimeMinutes": 44.0,
+            "freeFlowSpeed": 78.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-08T19:00:00Z",
+            "congestionLevel": 0.45,
+            "averageSpeed": 35.5,
+            "travelTimeMinutes": 33.8,
+            "freeFlowSpeed": 64.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T07:00:00Z",
+            "congestionLevel": 0.41,
+            "averageSpeed": 35.5,
+            "travelTimeMinutes": 33.8,
+            "freeFlowSpeed": 60.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T08:00:00Z",
+            "congestionLevel": 0.49,
+            "averageSpeed": 30.8,
+            "travelTimeMinutes": 38.9,
+            "freeFlowSpeed": 60.2,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T09:00:00Z",
+            "congestionLevel": 0.5,
+            "averageSpeed": 33.9,
+            "travelTimeMinutes": 35.4,
+            "freeFlowSpeed": 67.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T12:00:00Z",
+            "congestionLevel": 0.51,
+            "averageSpeed": 39.0,
+            "travelTimeMinutes": 30.8,
+            "freeFlowSpeed": 78.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T13:00:00Z",
+            "congestionLevel": 0.52,
+            "averageSpeed": 31.4,
+            "travelTimeMinutes": 38.2,
+            "freeFlowSpeed": 65.4,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T17:00:00Z",
+            "congestionLevel": 0.32,
+            "averageSpeed": 45.3,
+            "travelTimeMinutes": 26.5,
+            "freeFlowSpeed": 66.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T18:00:00Z",
+            "congestionLevel": 0.31,
+            "averageSpeed": 49.8,
+            "travelTimeMinutes": 24.1,
+            "freeFlowSpeed": 72.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-09T19:00:00Z",
+            "congestionLevel": 0.37,
+            "averageSpeed": 39.7,
+            "travelTimeMinutes": 30.2,
+            "freeFlowSpeed": 62.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-10T07:00:00Z",
+            "congestionLevel": 0.91,
+            "averageSpeed": 6.7,
+            "travelTimeMinutes": 178.7,
+            "freeFlowSpeed": 73.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T08:00:00Z",
+            "congestionLevel": 0.77,
+            "averageSpeed": 18.5,
+            "travelTimeMinutes": 64.7,
+            "freeFlowSpeed": 79.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T09:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.3,
+            "travelTimeMinutes": 279.7,
+            "freeFlowSpeed": 74.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T12:00:00Z",
+            "congestionLevel": 0.8,
+            "averageSpeed": 15.1,
+            "travelTimeMinutes": 79.5,
+            "freeFlowSpeed": 74.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T13:00:00Z",
+            "congestionLevel": 0.37,
+            "averageSpeed": 50.5,
+            "travelTimeMinutes": 23.8,
+            "freeFlowSpeed": 79.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T17:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 11.5,
+            "travelTimeMinutes": 104.2,
+            "freeFlowSpeed": 63.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T18:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1530.3,
+            "freeFlowSpeed": 78.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-10T19:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 7.2,
+            "travelTimeMinutes": 167.2,
+            "freeFlowSpeed": 71.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T07:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 6.7,
+            "travelTimeMinutes": 179.5,
+            "freeFlowSpeed": 63.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T08:00:00Z",
+            "congestionLevel": 0.91,
+            "averageSpeed": 5.7,
+            "travelTimeMinutes": 209.6,
+            "freeFlowSpeed": 63.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T09:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 3.7,
+            "travelTimeMinutes": 328.7,
+            "freeFlowSpeed": 60.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T12:00:00Z",
+            "congestionLevel": 0.57,
+            "averageSpeed": 29.8,
+            "travelTimeMinutes": 40.3,
+            "freeFlowSpeed": 69.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T13:00:00Z",
+            "congestionLevel": 0.32,
+            "averageSpeed": 41.1,
+            "travelTimeMinutes": 29.2,
+            "freeFlowSpeed": 60.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T17:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.6,
+            "travelTimeMinutes": 1918.3,
+            "freeFlowSpeed": 62.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T18:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 12.0,
+            "travelTimeMinutes": 99.7,
+            "freeFlowSpeed": 65.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-11T19:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 8.0,
+            "travelTimeMinutes": 149.1,
+            "freeFlowSpeed": 64.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T07:00:00Z",
+            "congestionLevel": 0.79,
+            "averageSpeed": 16.5,
+            "travelTimeMinutes": 72.7,
+            "freeFlowSpeed": 77.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T08:00:00Z",
+            "congestionLevel": 0.86,
+            "averageSpeed": 10.6,
+            "travelTimeMinutes": 112.8,
+            "freeFlowSpeed": 76.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T09:00:00Z",
+            "congestionLevel": 0.71,
+            "averageSpeed": 18.7,
+            "travelTimeMinutes": 64.1,
+            "freeFlowSpeed": 63.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T12:00:00Z",
+            "congestionLevel": 0.39,
+            "averageSpeed": 46.5,
+            "travelTimeMinutes": 25.8,
+            "freeFlowSpeed": 76.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T13:00:00Z",
+            "congestionLevel": 0.44,
+            "averageSpeed": 43.7,
+            "travelTimeMinutes": 27.5,
+            "freeFlowSpeed": 78.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T17:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1531.5,
+            "freeFlowSpeed": 78.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T18:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 8.8,
+            "travelTimeMinutes": 137.0,
+            "freeFlowSpeed": 70.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-12T19:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 6.6,
+            "travelTimeMinutes": 183.1,
+            "freeFlowSpeed": 67.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T07:00:00Z",
+            "congestionLevel": 0.97,
+            "averageSpeed": 1.7,
+            "travelTimeMinutes": 719.5,
+            "freeFlowSpeed": 63.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T08:00:00Z",
+            "congestionLevel": 0.96,
+            "averageSpeed": 2.6,
+            "travelTimeMinutes": 463.7,
+            "freeFlowSpeed": 63.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T09:00:00Z",
+            "congestionLevel": 0.92,
+            "averageSpeed": 5.4,
+            "travelTimeMinutes": 223.2,
+            "freeFlowSpeed": 71.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T12:00:00Z",
+            "congestionLevel": 0.5,
+            "averageSpeed": 40.1,
+            "travelTimeMinutes": 30.0,
+            "freeFlowSpeed": 79.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T13:00:00Z",
+            "congestionLevel": 0.42,
+            "averageSpeed": 44.9,
+            "travelTimeMinutes": 26.7,
+            "freeFlowSpeed": 77.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T17:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 7.0,
+            "travelTimeMinutes": 172.5,
+            "freeFlowSpeed": 63.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T18:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1507.7,
+            "freeFlowSpeed": 79.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-13T19:00:00Z",
+            "congestionLevel": 0.93,
+            "averageSpeed": 5.1,
+            "travelTimeMinutes": 235.4,
+            "freeFlowSpeed": 71.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T07:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 12.8,
+            "travelTimeMinutes": 93.8,
+            "freeFlowSpeed": 66.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T08:00:00Z",
+            "congestionLevel": 0.86,
+            "averageSpeed": 9.9,
+            "travelTimeMinutes": 120.7,
+            "freeFlowSpeed": 70.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T09:00:00Z",
+            "congestionLevel": 0.79,
+            "averageSpeed": 14.7,
+            "travelTimeMinutes": 81.8,
+            "freeFlowSpeed": 69.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T12:00:00Z",
+            "congestionLevel": 0.38,
+            "averageSpeed": 43.4,
+            "travelTimeMinutes": 27.7,
+            "freeFlowSpeed": 70.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T13:00:00Z",
+            "congestionLevel": 0.51,
+            "averageSpeed": 36.0,
+            "travelTimeMinutes": 33.4,
+            "freeFlowSpeed": 73.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T17:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 11.4,
+            "travelTimeMinutes": 105.7,
+            "freeFlowSpeed": 61.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T18:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 13.0,
+            "travelTimeMinutes": 92.2,
+            "freeFlowSpeed": 68.7,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-14T19:00:00Z",
+            "congestionLevel": 0.91,
+            "averageSpeed": 5.9,
+            "travelTimeMinutes": 202.9,
+            "freeFlowSpeed": 65.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-15T07:00:00Z",
+            "congestionLevel": 0.38,
+            "averageSpeed": 40.5,
+            "travelTimeMinutes": 29.6,
+            "freeFlowSpeed": 65.4,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T08:00:00Z",
+            "congestionLevel": 0.35,
+            "averageSpeed": 43.4,
+            "travelTimeMinutes": 27.7,
+            "freeFlowSpeed": 67.1,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T09:00:00Z",
+            "congestionLevel": 0.59,
+            "averageSpeed": 27.1,
+            "travelTimeMinutes": 44.2,
+            "freeFlowSpeed": 66.4,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T12:00:00Z",
+            "congestionLevel": 0.54,
+            "averageSpeed": 29.2,
+            "travelTimeMinutes": 41.0,
+            "freeFlowSpeed": 63.3,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T13:00:00Z",
+            "congestionLevel": 0.63,
+            "averageSpeed": 26.4,
+            "travelTimeMinutes": 45.5,
+            "freeFlowSpeed": 70.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T17:00:00Z",
+            "congestionLevel": 0.25,
+            "averageSpeed": 49.7,
+            "travelTimeMinutes": 24.1,
+            "freeFlowSpeed": 66.6,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T18:00:00Z",
+            "congestionLevel": 0.23,
+            "averageSpeed": 52.1,
+            "travelTimeMinutes": 23.0,
+            "freeFlowSpeed": 67.8,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-15T19:00:00Z",
+            "congestionLevel": 0.37,
+            "averageSpeed": 39.4,
+            "travelTimeMinutes": 30.4,
+            "freeFlowSpeed": 62.2,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T07:00:00Z",
+            "congestionLevel": 0.33,
+            "averageSpeed": 41.2,
+            "travelTimeMinutes": 29.1,
+            "freeFlowSpeed": 61.1,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T08:00:00Z",
+            "congestionLevel": 0.44,
+            "averageSpeed": 37.0,
+            "travelTimeMinutes": 32.4,
+            "freeFlowSpeed": 65.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T09:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.6,
+            "travelTimeMinutes": 1846.7,
+            "freeFlowSpeed": 65.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T12:00:00Z",
+            "congestionLevel": 0.42,
+            "averageSpeed": 35.1,
+            "travelTimeMinutes": 34.2,
+            "freeFlowSpeed": 60.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T13:00:00Z",
+            "congestionLevel": 0.32,
+            "averageSpeed": 42.2,
+            "travelTimeMinutes": 28.4,
+            "freeFlowSpeed": 61.9,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T17:00:00Z",
+            "congestionLevel": 0.42,
+            "averageSpeed": 44.2,
+            "travelTimeMinutes": 27.1,
+            "freeFlowSpeed": 76.1,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T18:00:00Z",
+            "congestionLevel": 0.43,
+            "averageSpeed": 36.4,
+            "travelTimeMinutes": 33.0,
+            "freeFlowSpeed": 63.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-16T19:00:00Z",
+            "congestionLevel": 0.44,
+            "averageSpeed": 40.4,
+            "travelTimeMinutes": 29.7,
+            "freeFlowSpeed": 72.6,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-17T07:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 6.8,
+            "travelTimeMinutes": 177.6,
+            "freeFlowSpeed": 66.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T08:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 7.0,
+            "travelTimeMinutes": 171.8,
+            "freeFlowSpeed": 61.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T09:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 6.3,
+            "travelTimeMinutes": 189.5,
+            "freeFlowSpeed": 61.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T12:00:00Z",
+            "congestionLevel": 0.57,
+            "averageSpeed": 33.0,
+            "travelTimeMinutes": 36.4,
+            "freeFlowSpeed": 77.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T13:00:00Z",
+            "congestionLevel": 0.45,
+            "averageSpeed": 38.6,
+            "travelTimeMinutes": 31.1,
+            "freeFlowSpeed": 70.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T17:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1546.8,
+            "freeFlowSpeed": 77.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T18:00:00Z",
+            "congestionLevel": 0.83,
+            "averageSpeed": 11.7,
+            "travelTimeMinutes": 102.4,
+            "freeFlowSpeed": 67.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-17T19:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 8.9,
+            "travelTimeMinutes": 134.4,
+            "freeFlowSpeed": 73.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T07:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 11.1,
+            "travelTimeMinutes": 108.6,
+            "freeFlowSpeed": 60.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T08:00:00Z",
+            "congestionLevel": 0.73,
+            "averageSpeed": 21.0,
+            "travelTimeMinutes": 57.1,
+            "freeFlowSpeed": 79.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T09:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 15.4,
+            "travelTimeMinutes": 77.8,
+            "freeFlowSpeed": 79.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T12:00:00Z",
+            "congestionLevel": 0.36,
+            "averageSpeed": 50.9,
+            "travelTimeMinutes": 23.6,
+            "freeFlowSpeed": 78.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T13:00:00Z",
+            "congestionLevel": 0.33,
+            "averageSpeed": 53.6,
+            "travelTimeMinutes": 22.4,
+            "freeFlowSpeed": 79.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T17:00:00Z",
+            "congestionLevel": 0.75,
+            "averageSpeed": 15.2,
+            "travelTimeMinutes": 78.8,
+            "freeFlowSpeed": 62.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T18:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.8,
+            "travelTimeMinutes": 1583.1,
+            "freeFlowSpeed": 75.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-18T19:00:00Z",
+            "congestionLevel": 0.83,
+            "averageSpeed": 11.6,
+            "travelTimeMinutes": 103.2,
+            "freeFlowSpeed": 69.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T07:00:00Z",
+            "congestionLevel": 0.92,
+            "averageSpeed": 5.8,
+            "travelTimeMinutes": 207.2,
+            "freeFlowSpeed": 70.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T08:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 7.7,
+            "travelTimeMinutes": 156.6,
+            "freeFlowSpeed": 78.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T09:00:00Z",
+            "congestionLevel": 0.84,
+            "averageSpeed": 11.4,
+            "travelTimeMinutes": 105.3,
+            "freeFlowSpeed": 69.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T12:00:00Z",
+            "congestionLevel": 0.53,
+            "averageSpeed": 34.5,
+            "travelTimeMinutes": 34.8,
+            "freeFlowSpeed": 73.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T13:00:00Z",
+            "congestionLevel": 0.64,
+            "averageSpeed": 26.5,
+            "travelTimeMinutes": 45.3,
+            "freeFlowSpeed": 73.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T17:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 3.7,
+            "travelTimeMinutes": 322.2,
+            "freeFlowSpeed": 66.0,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T18:00:00Z",
+            "congestionLevel": 0.75,
+            "averageSpeed": 18.1,
+            "travelTimeMinutes": 66.3,
+            "freeFlowSpeed": 72.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-19T19:00:00Z",
+            "congestionLevel": 0.81,
+            "averageSpeed": 12.9,
+            "travelTimeMinutes": 92.9,
+            "freeFlowSpeed": 66.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T07:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 9.1,
+            "travelTimeMinutes": 132.0,
+            "freeFlowSpeed": 74.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T08:00:00Z",
+            "congestionLevel": 0.88,
+            "averageSpeed": 8.0,
+            "travelTimeMinutes": 149.5,
+            "freeFlowSpeed": 65.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T09:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 14.0,
+            "travelTimeMinutes": 85.9,
+            "freeFlowSpeed": 78.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T12:00:00Z",
+            "congestionLevel": 0.56,
+            "averageSpeed": 27.6,
+            "travelTimeMinutes": 43.5,
+            "freeFlowSpeed": 62.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T13:00:00Z",
+            "congestionLevel": 0.48,
+            "averageSpeed": 41.0,
+            "travelTimeMinutes": 29.2,
+            "freeFlowSpeed": 78.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T17:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1784.8,
+            "freeFlowSpeed": 67.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T18:00:00Z",
+            "congestionLevel": 0.85,
+            "averageSpeed": 9.3,
+            "travelTimeMinutes": 128.6,
+            "freeFlowSpeed": 61.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-20T19:00:00Z",
+            "congestionLevel": 0.98,
+            "averageSpeed": 1.7,
+            "travelTimeMinutes": 720.0,
+            "freeFlowSpeed": 68.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T07:00:00Z",
+            "congestionLevel": 0.95,
+            "averageSpeed": 4.2,
+            "travelTimeMinutes": 287.6,
+            "freeFlowSpeed": 76.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T08:00:00Z",
+            "congestionLevel": 0.89,
+            "averageSpeed": 7.6,
+            "travelTimeMinutes": 157.8,
+            "freeFlowSpeed": 68.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T09:00:00Z",
+            "congestionLevel": 0.7,
+            "averageSpeed": 18.2,
+            "travelTimeMinutes": 66.0,
+            "freeFlowSpeed": 61.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T12:00:00Z",
+            "congestionLevel": 0.74,
+            "averageSpeed": 16.3,
+            "travelTimeMinutes": 73.6,
+            "freeFlowSpeed": 63.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T13:00:00Z",
+            "congestionLevel": 0.54,
+            "averageSpeed": 35.0,
+            "travelTimeMinutes": 34.3,
+            "freeFlowSpeed": 75.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T17:00:00Z",
+            "congestionLevel": 0.85,
+            "averageSpeed": 10.4,
+            "travelTimeMinutes": 115.8,
+            "freeFlowSpeed": 68.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T18:00:00Z",
+            "congestionLevel": 0.98,
+            "averageSpeed": 1.4,
+            "travelTimeMinutes": 849.2,
+            "freeFlowSpeed": 61.6,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-21T19:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 5.9,
+            "travelTimeMinutes": 202.0,
+            "freeFlowSpeed": 62.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-22T07:00:00Z",
+            "congestionLevel": 0.41,
+            "averageSpeed": 37.0,
+            "travelTimeMinutes": 32.5,
+            "freeFlowSpeed": 62.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T08:00:00Z",
+            "congestionLevel": 0.37,
+            "averageSpeed": 47.9,
+            "travelTimeMinutes": 25.0,
+            "freeFlowSpeed": 76.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T09:00:00Z",
+            "congestionLevel": 0.51,
+            "averageSpeed": 37.9,
+            "travelTimeMinutes": 31.6,
+            "freeFlowSpeed": 78.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T12:00:00Z",
+            "congestionLevel": 0.85,
+            "averageSpeed": 10.3,
+            "travelTimeMinutes": 116.8,
+            "freeFlowSpeed": 67.6,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T13:00:00Z",
+            "congestionLevel": 0.63,
+            "averageSpeed": 28.2,
+            "travelTimeMinutes": 42.5,
+            "freeFlowSpeed": 75.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T17:00:00Z",
+            "congestionLevel": 0.43,
+            "averageSpeed": 45.1,
+            "travelTimeMinutes": 26.6,
+            "freeFlowSpeed": 78.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T18:00:00Z",
+            "congestionLevel": 0.36,
+            "averageSpeed": 39.9,
+            "travelTimeMinutes": 30.1,
+            "freeFlowSpeed": 62.7,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-22T19:00:00Z",
+            "congestionLevel": 0.54,
+            "averageSpeed": 36.3,
+            "travelTimeMinutes": 33.0,
+            "freeFlowSpeed": 78.4,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T07:00:00Z",
+            "congestionLevel": 0.27,
+            "averageSpeed": 46.5,
+            "travelTimeMinutes": 25.8,
+            "freeFlowSpeed": 63.2,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T08:00:00Z",
+            "congestionLevel": 0.24,
+            "averageSpeed": 54.3,
+            "travelTimeMinutes": 22.1,
+            "freeFlowSpeed": 71.4,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T09:00:00Z",
+            "congestionLevel": 0.49,
+            "averageSpeed": 40.0,
+            "travelTimeMinutes": 30.0,
+            "freeFlowSpeed": 78.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T12:00:00Z",
+            "congestionLevel": 0.65,
+            "averageSpeed": 26.8,
+            "travelTimeMinutes": 44.8,
+            "freeFlowSpeed": 77.0,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T13:00:00Z",
+            "congestionLevel": 0.44,
+            "averageSpeed": 39.3,
+            "travelTimeMinutes": 30.5,
+            "freeFlowSpeed": 70.3,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T17:00:00Z",
+            "congestionLevel": 0.45,
+            "averageSpeed": 34.0,
+            "travelTimeMinutes": 35.3,
+            "freeFlowSpeed": 62.2,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T18:00:00Z",
+            "congestionLevel": 0.35,
+            "averageSpeed": 47.2,
+            "travelTimeMinutes": 25.4,
+            "freeFlowSpeed": 73.1,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-23T19:00:00Z",
+            "congestionLevel": 0.42,
+            "averageSpeed": 41.8,
+            "travelTimeMinutes": 28.7,
+            "freeFlowSpeed": 72.5,
+            "roadLength": 20,
+            "isWeekday": false
+        },
+        {
+            "timestamp": "2025-03-24T07:00:00Z",
+            "congestionLevel": 0.92,
+            "averageSpeed": 5.9,
+            "travelTimeMinutes": 202.2,
+            "freeFlowSpeed": 71.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T08:00:00Z",
+            "congestionLevel": 0.9,
+            "averageSpeed": 7.0,
+            "travelTimeMinutes": 172.6,
+            "freeFlowSpeed": 66.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T09:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 3.5,
+            "travelTimeMinutes": 343.0,
+            "freeFlowSpeed": 62.8,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T12:00:00Z",
+            "congestionLevel": 0.4,
+            "averageSpeed": 38.2,
+            "travelTimeMinutes": 31.4,
+            "freeFlowSpeed": 64.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T13:00:00Z",
+            "congestionLevel": 0.97,
+            "averageSpeed": 2.0,
+            "travelTimeMinutes": 612.4,
+            "freeFlowSpeed": 66.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T17:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.6,
+            "travelTimeMinutes": 1929.0,
+            "freeFlowSpeed": 62.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T18:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.6,
+            "travelTimeMinutes": 1895.5,
+            "freeFlowSpeed": 63.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-24T19:00:00Z",
+            "congestionLevel": 0.82,
+            "averageSpeed": 13.3,
+            "travelTimeMinutes": 90.2,
+            "freeFlowSpeed": 75.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T07:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.0,
+            "travelTimeMinutes": 296.5,
+            "freeFlowSpeed": 66.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T08:00:00Z",
+            "congestionLevel": 0.79,
+            "averageSpeed": 14.6,
+            "travelTimeMinutes": 82.0,
+            "freeFlowSpeed": 70.5,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T09:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.7,
+            "travelTimeMinutes": 1809.7,
+            "freeFlowSpeed": 66.3,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T12:00:00Z",
+            "congestionLevel": 0.6,
+            "averageSpeed": 26.7,
+            "travelTimeMinutes": 44.9,
+            "freeFlowSpeed": 66.9,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T13:00:00Z",
+            "congestionLevel": 0.61,
+            "averageSpeed": 30.6,
+            "travelTimeMinutes": 39.2,
+            "freeFlowSpeed": 79.4,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T17:00:00Z",
+            "congestionLevel": 0.94,
+            "averageSpeed": 4.1,
+            "travelTimeMinutes": 294.5,
+            "freeFlowSpeed": 73.1,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T18:00:00Z",
+            "congestionLevel": 0.83,
+            "averageSpeed": 10.6,
+            "travelTimeMinutes": 113.4,
+            "freeFlowSpeed": 61.2,
+            "roadLength": 20,
+            "isWeekday": true
+        },
+        {
+            "timestamp": "2025-03-25T19:00:00Z",
+            "congestionLevel": 0.99,
+            "averageSpeed": 0.6,
+            "travelTimeMinutes": 1939.9,
+            "freeFlowSpeed": 61.9,
+            "roadLength": 20,
+            "isWeekday": true
+        }
+    ]
+}

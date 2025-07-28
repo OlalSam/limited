@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/partial/template.xhtml">
+        <ui:define name="content">
+            <p:growl id="globalGrowl" showDetail="true" life="5000" globalOnly="true" />
+
+            <div class="grid">
+                <!-- Predictive Analytics Section (no exporter here) -->
+                <div class="col-12">
+                    <div>
+                        <div class="grid">
+                            <div class="col-12 md:col-6">
+                                <div class="surface-card p-4 border-round">
+                                    <h4>Key Metrics</h4>
+                                    <div class="grid">
+                                        <div class="col-6" style="height: 180px">
+                                            <div class="text-400 font-medium mb-2">Average Daily Trips</div>
+                                            <div class="text-200 text-2xl font-bold mb-3">
+                                                <h:outputText value="#{advancedAnalytics.predictiveData['avgDailyTrips']}">
+                                                    <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                                </h:outputText>
+                                            </div>
+                                        </div>
+                                        <div class="col-6" style="height: 200px">
+                                            <div class="text-400 font-medium mb-2">Average Trip Duration</div>
+                                            <div class="text-200 text-2xl font-bold mb-3">
+                                                <h:outputText value="#{advancedAnalytics.predictiveData['avgTripDuration']}">
+                                                    <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                                </h:outputText> hrs
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-400 font-medium mb-2">Daily Revenue</div>
+                                            <div class="text-200 text-2xl font-bold mb-3">
+                                                KES <h:outputText value="#{advancedAnalytics.predictiveData['avgDailyRevenue']}">
+                                                    <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                                </h:outputText>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-400 font-medium mb-2">Trip Volatility</div>
+                                            <div class="text-200 text-2xl font-bold mb-3">
+                                                <h:outputText value="#{advancedAnalytics.predictiveData['tripVolatility']}">
+                                                    <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                                </h:outputText>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Route Performance Trends Section -->
+                            <div class="col-12 md:col-6">
+                                <div class="surface-card p-4 border-round">
+                                    <h4>Schedule Overview</h4>
+                                    <p:chart value="#{advancedAnalytics.scheduleChartJson}" style="height:300px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Early Warning Indicators Section -->
+                <div class="col-12">
+                    <div class="surface-card shadow-2 border-round p-4">
+                        <!-- Flex container: heading + exporter button -->
+                        <div class="flex justify-content-between p-ai-center mb-2">
+                            <h3 class="m-0">Early Warning Indicators</h3>
+                            <p:commandButton icon="pi pi-file-pdf"
+                                             title="Export Early Warnings to PDF"
+                                             styleClass="p-button-sm p-button-text">
+                                <p:dataExporter type="pdf"
+                                                target="earlyWarningsTable"
+                                                fileName="early_warnings"
+                                                pageOnly="false"/>
+                            </p:commandButton>
+                        </div>
+
+                        <!-- DataTable: id="earlyWarningsTable" -->
+                        <p:dataTable id="earlyWarningsTable"
+                                     value="#{advancedAnalytics.earlyWarnings}"
+                                     var="warning"
+                                     paginator="true"
+                                     rows="10"
+                                     paginatorPosition="bottom"
+                                     styleClass="p-datatable-sm">
+                            <p:column headerText="Route">
+                                #{warning['route']}
+                            </p:column>
+                            <p:column headerText="Trips">
+                                #{warning['trips']}
+                            </p:column>
+                            <p:column headerText="Average Revenue">
+                                <h:outputText value="#{warning['avgRevenue']}">
+                                    <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Average Duration">
+                                <h:outputText value="#{warning['avgDuration']}">
+                                    <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                </h:outputText>
+                                hrs
+                            </p:column>
+                            <p:column headerText="Warning Type">
+                                <p:tag value="#{warning['warningType']}"
+                                       severity="#{warning['warningType'] == 'Normal' ? 'success' : 'warning'}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+
+                <!-- Route Efficiency Analysis Section -->
+                <div class="col-12">
+                    <div>
+                        <div class="grid">
+                            <div class="col-12 md:col-6">
+                                <div class="surface-card p-4 border-round">
+                                    <!-- Flex container: heading + exporter button -->
+                                    <div class="flex justify-content-between p-ai-center mb-2">
+                                        <h4 class="m-0">Efficiency Scores</h4>
+                                        <p:commandButton icon="pi pi-file-pdf"
+                                                         title="Export Efficiency Scores to PDF"
+                                                         styleClass="p-button-sm p-button-text">
+                                            <p:dataExporter type="pdf"
+                                                            target="efficiencyScoresTable"
+                                                            fileName="efficiency_scores"
+                                                            pageOnly="false"/>
+                                        </p:commandButton>
+                                    </div>
+
+                                    <!-- DataTable: id="efficiencyScoresTable" -->
+                                    <p:dataTable id="efficiencyScoresTable"
+                                                 value="#{advancedAnalytics.routeEfficiencyScores}"
+                                                 var="score"
+                                                 paginator="true"
+                                                 rows="5"
+                                                 paginatorPosition="bottom"
+                                                 styleClass="p-datatable-sm">
+                                        <p:column headerText="Route">
+                                            #{score['route']}
+                                        </p:column>
+                                        <p:column headerText="Efficiency Score">
+                                            <p:progressBar value="#{score['efficiencyScore']}"
+                                                           styleClass="#{score['efficiencyScore'] >= 70 ? 'p-progressbar-success' : (score['efficiencyScore'] >= 40 ? 'p-progressbar-warning' : 'p-progressbar-danger')}"/>
+                                        </p:column>
+                                        <p:column headerText="Completed Trips">
+                                            #{score['completedTrips']}/#{score['totalTrips']}
+                                        </p:column>
+                                        <p:column headerText="Avg Revenue">
+                                            <h:outputText value="#{score['avgRevenue']}">
+                                                <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                            </h:outputText>
+                                        </p:column>
+                                        <p:column headerText="Avg Duration">
+                                            <h:outputText value="#{score['avgDuration']}">
+                                                <f:convertNumber minFractionDigits="2" maxFractionDigits="2"/>
+                                            </h:outputText>
+                                            hrs
+                                        </p:column>
+                                    </p:dataTable>
+                                </div>
+                            </div>
+
+                            <div class="col-12 md:col-6">
+                                <div class="surface-card p-4 border-round">
+                                    <!-- Flex container: heading + exporter button -->
+                                    <div class="flex justify-content-between p-ai-center mb-2">
+                                        <h4 class="m-0">Schedule Details</h4>
+                                        <p:commandButton icon="pi pi-file-pdf"
+                                                         title="Export Schedule Recommendations to PDF"
+                                                         styleClass="p-button-sm p-button-text">
+                                            <p:dataExporter type="pdf"
+                                                            target="scheduleRecommendationsTable"
+                                                            fileName="schedule_recommendations"
+                                                            pageOnly="false"/>
+                                        </p:commandButton>
+                                    </div>
+
+                                    <!-- DataTable: id="scheduleRecommendationsTable" -->
+                                    <p:dataTable id="scheduleRecommendationsTable"
+                                                 value="#{advancedAnalytics.adaptiveScheduleRecommendations}"
+                                                 var="shed"
+                                                 paginator="true"
+                                                 rows="5"
+                                                 paginatorPosition="bottom"
+                                                 styleClass="p-datatable-sm">
+                                        <p:column headerText="Route">
+                                            #{shed['route']}
+                                        </p:column>
+                                        <p:column headerText="Hour">
+                                            #{shed['hourOfDay']}:00
+                                        </p:column>
+                                        <p:column headerText="Current Trips">
+                                            #{shed['tripCount']}
+                                        </p:column>
+                                        <p:column headerText="Recommended Trips">
+                                            #{shed['recommendedTrips']}
+                                        </p:column>
+                                        <p:column headerText="Demand Level">
+                                            <p:tag value="#{shed['demandLevel']}"
+                                                   severity="#{shed['demandLevel'] == 'Peak' ? 'danger' : (shed['demandLevel'] == 'Moderate' ? 'warning' : 'success')}"/>
+                                        </p:column>
+                                    </p:dataTable>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adaptive Schedule Recommendations Chart (no exporter needed) -->
+                <div class="col-12">
+                    <div class="grid">
+                        <div class="col-12">
+                            <div class="surface-card p-4 border-round">
+                                <h4>Route Efficiency</h4>
+                                <p:chart value="#{advancedAnalytics.efficiencyChartJson}" style="height: 200px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto-refresh script -->
+            <h:outputScript>
+                function refreshData() {
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 300000); // Refresh every 5 minutes
+                }
+                refreshData();
+            </h:outputScript>
+        </ui:define>
+    </ui:composition>
+</html>

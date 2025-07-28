@@ -1,0 +1,102 @@
+To implement analytics tracking for trips and financial data, we can create a new AnalyticsDao class and relevant tables in the database. Here's a detailed work scheme to follow:
+
+Work Scheme for Analytics Implementation
+Define Database Tables:
+
+Create tables for tracking Trip data and Financial data.
+Ensure necessary fields such as trip ID, driver ID, fare, route ID, etc.
+Create Analytics Data Access Object (DAO):
+
+Create a new class AnalyticsDao that handles database operations related to trips and financial analytics.
+Implement Methods:
+
+Create methods in AnalyticsDao to:
+Record a new trip.
+Retrieve trip records.
+Retrieve financial analytics based on trips.
+Connect to Existing Services:
+
+Integrate the AnalyticsDao with existing services and controllers for data flowing through the application.
+Add Transaction Logic:
+
+Ensure that any trip data capturing integrates with the existing trip creation logic in controllers.
+Testing:
+
+Create unit tests to verify the correctness and reliability of the new implementations.
+Implementation Steps
+Step 1: Create Database Tables
+You would typically execute a SQL script to create needed tables if they don't already exist.
+
+Here’s an example SQL schema for the analytics:
+
+CREATE TABLE IF NOT EXISTS trips (
+    trip_id SERIAL PRIMARY KEY,
+    driver_id INT NOT NULL,
+    fare DECIMAL(10, 2) NOT NULL,
+    route_id INT NOT NULL,
+    start_time TIMESTAMP NOT NULL,
+    end_time TIMESTAMP NOT NULL,
+    FOREIGN KEY (driver_id) REFERENCES users(id),
+    FOREIGN KEY (route_id) REFERENCES routes(id)
+);
+CREATE TABLE IF NOT EXISTS financials (
+    financial_id SERIAL PRIMARY KEY,
+    trip_id INT NOT NULL,
+    revenue DECIMAL(10, 2) NOT NULL,
+    expenses DECIMAL(10, 2) NOT NULL,
+    profit DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (trip_id) REFERENCES trips(trip_id)
+);
+Step 2: Create AnalyticsDao
+Here's a basic structure for the new DAO:
+
+package com.ignium.nganya.analytics;
+import jakarta.annotation.Resource;
+import javax.sql.DataSource;
+import java.sql.*;
+public class AnalyticsDao {
+    @Resource(lookup = "java:global/nganya1")
+    private DataSource dataSource;
+    public void recordTrip(int driverId, double fare, int routeId, Timestamp startTime, Timestamp endTime) {
+        String sql = "INSERT INTO trips (driver_id, fare, route_id, start_time, end_time) VALUES (?, ?, ?, ?, ?)";
+        
+        try (Connection conn = dataSource.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, driverId);
+            ps.setDouble(2, fare);
+            ps.setInt(3, routeId);
+            ps.setTimestamp(4, startTime);
+            ps.setTimestamp(5, endTime);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    public ResultSet getTripAnalytics() {
+        String sql = "SELECT * FROM trips";
+        
+        try (Connection conn = dataSource.getConnection(); Statement stmt = conn.createStatement()) {
+            return stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+    // Add additional methods as necessary for financial analytics
+}
+Step 3: Integrate with Existing Services
+Make sure to inject the AnalyticsDao into any services where trips are recorded or financial data is processed. For instance:
+
+@Inject
+private AnalyticsDao analyticsDao;
+public void completeTrip(int driverId, double fare, int routeId) {
+    Timestamp startTime = // Get start time
+    Timestamp endTime = new Timestamp(System.currentTimeMillis());
+    
+    // Call existing trip completion logic...
+    // Record trip in analytics
+    analyticsDao.recordTrip(driverId, fare, routeId, startTime, endTime);
+}
+Moving Forward
+Focus on the provided structure while expanding on functionality specific to your application's requirements. Implementing rigorous testing should also be a top priority to ensure that analytics data is captured and processed correctly.
+
+If you need further modifications or implementations, feel free to ask!

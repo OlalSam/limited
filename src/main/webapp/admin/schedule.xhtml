@@ -1,0 +1,315 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/partial/template.xhtml"
+                >
+
+
+    <ui:define name="content">
+        <div class="schedule-container">
+            <!-- Messages -->
+            <h:form id="globalMessagesForm">
+                <div class="mb-3">
+                    <p:growl id="growl"  severity="info, fatal, error" showDetail="true" sticky="true" />
+                </div>
+            </h:form>
+
+            <!-- Top Bar with Actions -->
+            <div class="surface-card shadow-2 border-round p-3 mb-3">
+                <div class="flex align-items-center justify-content-between">
+                    <div class="flex align-items-center">
+                        <h2 class="page-head-line">Schedule Management</h2>
+                    </div>
+                    <h:form>
+                        <div class="flex gap-2">
+                            <p:commandButton value="Weekly Schedule" 
+                                             icon="pi pi-calendar"
+                                             action="#{schedule.weeklySchedule()}"
+                                             styleClass="p-button-outlined" />
+
+                            <p:commandButton value="New Assignment" 
+                                             icon="pi pi-plus"
+                                             onclick="PF('assignmentDialog').show()"
+                                             styleClass="p-button-primary" />
+                        </div></h:form>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid">
+                <!-- Assignments Overview Card -->
+                <div class="col-12 lg:col-8">
+                    <div class="surface-card shadow-2 border-round p-4">
+                        <div class="flex align-items-center justify-content-between mb-3">
+                            <h3 class="m-0">Current Assignments</h3>
+                        </div>
+
+                        <h:form id="assignment">
+                            <p:dataTable id="busAssignment"
+                                         value="#{schedule.assignments}"
+                                         var="assignment"
+                                         widgetVar="assignmentsTable"
+                                         paginator="true"
+                                         rows="5"
+                                         reflow="true"
+                                         paginatorPosition="bottom"
+                                         styleClass="p-datatable-sm"
+                                         scrollable="true"
+                                         resizableColumns="true"
+                                         paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords}"
+                                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                                <p:autoUpdate />
+                                <p:column headerText="Driver" sortBy="#{assignment.driverName}" filterBy="#{assignment.driverName}" filterMatchMode="contains">
+                                    <div class="flex align-items-center">
+                                        <i class="pi pi-user mr-2 text-500"></i>
+                                        <h:outputText value="#{assignment.driverName}" />
+                                    </div>
+                                </p:column>
+
+                                <p:column headerText="Vehicle" sortBy="#{assignment.vehiclePlate}">
+                                    <div class="flex align-items-center">
+                                        <i class="pi pi-car mr-2 text-500"></i>
+                                        <h:outputText value="#{assignment.vehiclePlate} - #{assignment.vehicleModel}" />
+                                    </div>
+                                </p:column>
+
+                                <p:column headerText="Period" sortBy="#{assignment.startDate}">
+                                    <div class="flex flex-column">
+                                        <span class="text-sm">
+                                            <i class="pi pi-calendar mr-1"></i>
+                                            <h:outputText value="#{assignment.startDate}">
+                                                <f:convertDateTime pattern="MMM dd, yyyy" />
+                                            </h:outputText>
+                                        </span>
+                                        <span class="text-sm text-500">
+                                            <i class="pi pi-calendar mr-1"></i>
+                                            <h:outputText value="#{assignment.endDate}">
+                                                <f:convertDateTime pattern="MMM dd, yyyy" />
+                                            </h:outputText>
+                                        </span>
+                                    </div>
+                                </p:column>
+
+                                <p:column headerText="Status" sortBy="#{assignment.status}">
+                                    <p:tag value="#{assignment.status.toUpperCase()}"
+                                           severity="#{assignment.status eq 'active' ? 'success' : 
+                                                       assignment.status eq 'cancelled' ? 'fatal' : 'info'}" />
+                                </p:column>
+
+                                <p:column style="width:80px">
+                                    <div class="flex gap-2">
+                                        <p:commandButton icon="pi pi-trash"
+                                                         rendered="#{assignment.status eq 'active'}"
+                                                         styleClass="p-button-danger p-button-rounded p-button-text"
+                                                         action="#{schedule.unassignVehicle(assignment.id, assignment.vehiclePlate)}"
+                                                         update=":assignment:busAssignment :globalMessagesForm:growl"
+                                                         process="@this"
+                                                         resetValues="true">
+                                        </p:commandButton>
+                                    </div>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+
+                <!-- Quick Stats and Route Schedule -->
+                <div class="col-12 lg:col-4">
+                    <!-- Stats Cards -->
+                    <h:form>
+                        <div class="grid">
+                            <div class="col-12 md:col-6 lg:col-12">
+                                <div class="surface-card shadow-2 border-round p-3 mb-3">
+                                    <div class="flex align-items-center">
+                                        <div class="flex align-items-center justify-content-center bg-blue-100 border-round mr-3" 
+                                             style="width:3rem;height:3rem">
+                                            <i class="pi pi-car text-blue-500 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <span class="block text-500 font-medium">Active Assignments</span>
+                                            <span class="text-300 font-medium text-xl">#{schedule.activeAssignmentsCount}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 md:col-6 lg:col-12">
+                                <div class="surface-card shadow-2 border-round p-3 mb-3">
+                                    <div class="flex align-items-center">
+                                        <div class="flex align-items-center justify-content-center bg-green-100 border-round mr-3" 
+                                             style="width:3rem;height:3rem">
+                                            <i class="pi pi-check-circle text-green-500 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <span class="block text-500 font-medium">Available Vehicles</span>
+                                            <span class="text-300 font-medium text-xl">#{schedule.availableVehiclesCount}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                    <!-- Route Schedule -->
+                    <div class="surface-card shadow-2 border-round p-3 mb-3">
+                        <h3 class="m-0 mb-3">Route Schedule</h3>
+                        <h:form id="routeSchedule">
+                            <p:dataTable value="#{routeController.routeAssignments}"
+                                         var="ass"
+                                         paginator="true"
+                                         rows="5"
+                                         lazy="true"
+                                         styleClass="p-datatable-sm"
+                                         scrollable="true"
+                                         resizableColumns="true"
+                                         paginatorPosition="bottom"
+                                         paginatorTemplate="{PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords}"
+                                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                                <p:column headerText="Route" sortBy="#{ass.routeName}" filterBy="#{ass.routeName}" filterMatchMode="contains">
+                                    <div class="flex align-items-center">
+                                        <i class="pi pi-map-marker mr-2 text-500"></i>
+                                        <h:outputText value="#{ass.routeName}" />
+                                    </div>
+                                </p:column>
+                                <p:column headerText="Driver" sortBy="#{ass.driverName}" filterBy="#{ass.driverName}" filterMatchMode="contains">
+                                    <h:outputText value="#{ass.driverName}" />
+                                </p:column>
+                                <p:column headerText="Date" sortBy="#{ass.assignmentDate}" filterBy="#{ass.assignmentDate}" filterMatchMode="contains">
+                                    <h:outputText value="#{ass.assignmentDate}">
+                                        <f:convertDateTime pattern="MMM dd" type="localDate" />
+                                    </h:outputText>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignment Dialog -->
+        <p:dialog header="New Vehicle Assignment" 
+                  widgetVar="assignmentDialog" 
+                  modal="true" 
+                  styleClass="p-fluid assignment-dialog"
+                  width="600px"
+                  height="auto"
+                  resizable="false"
+                  draggable="true">
+
+            <h:form id="assignmentForm">
+                <!-- Message Area -->
+                <div class="message-container mb-4">
+                    <p:messages id="formMessages" 
+                                showDetail="true" 
+                                closable="true"
+                                styleClass="custom-messages" />
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-fluid form-content">
+                    <!-- Driver Selection -->
+                    <div class="field mb-4">
+                        <h:outputLabel for="driver" 
+                                       value="Driver *" 
+                                       styleClass="field-label font-semibold" />
+                        <p:selectOneMenu id="driver"
+                                         value="#{schedule.selectedDriverId}"
+                                         styleClass="w-100 mt-2"
+                                         required="true"
+                                         requiredMessage="Please select a driver">
+                            <f:selectItem itemLabel="-- Select Driver --" 
+                                          itemValue="" 
+                                          noSelectionOption="true" />
+                            <f:selectItems value="#{schedule.drivers}" 
+                                           var="driver"
+                                           itemLabel="#{driver.username}" 
+                                           itemValue="#{driver.userId}" />
+                        </p:selectOneMenu>
+                    </div>
+
+                    <!-- Vehicle Selection -->
+                    <div class="field mb-4">
+                        <h:outputLabel for="vehicle" 
+                                       value="Vehicle *" 
+                                       styleClass="field-label font-semibold" />
+                        <p:selectOneMenu id="vehicle"
+                                         value="#{schedule.selectedVehicleId}"
+                                         styleClass="w-100 mt-2"
+                                         required="true"
+                                         requiredMessage="Please select a vehicle">
+                            <f:selectItem itemLabel="-- Select Vehicle --" 
+                                          itemValue="" 
+                                          noSelectionOption="true" />
+                            <f:selectItems value="#{schedule.vehicles}" 
+                                           var="vehicle"
+                                           itemLabel="#{vehicle.plateNumber} - #{vehicle.vehicleModel}" 
+                                           itemValue="#{vehicle.id}" />
+                        </p:selectOneMenu>
+                    </div>
+
+                    <!-- Date Range Section -->
+                    <div class="date-section">
+                        <h4 class="section-header mb-3">Assignment Period</h4>
+
+                        <div class="grid">
+                            <!-- Start Date -->
+                            <div class="col-12 md:col-6 mb-3">
+                                <h:outputLabel for="startDate" 
+                                               value="Start Date *" 
+                                               styleClass="field-label font-semibold" />
+                                <p:calendar id="startDate"
+                                            value="#{schedule.startDate}"
+                                            pattern="yyyy-MM-dd"
+                                            showOn="button"
+                                            styleClass="w-100 mt-2"
+                                            required="true"
+                                            requiredMessage="Please select start date"
+                                            placeholder="Select start date" />
+                            </div>
+
+                            <!-- End Date -->
+                            <div class="col-12 md:col-6 mb-3">
+                                <h:outputLabel for="endDate" 
+                                               value="End Date *" 
+                                               styleClass="field-label font-semibold" />
+                                <p:calendar id="endDate"
+                                            value="#{schedule.endDate}"
+                                            pattern="yyyy-MM-dd"
+                                            showOn="button"
+                                            styleClass="w-100 mt-2"
+                                            required="true"
+                                            requiredMessage="Please select end date"
+                                            mindate="#{schedule.startDate}"
+                                            placeholder="Select end date" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="dialog-footer pt-4 mt-4 border-top-1 surface-border">
+                    <div class="flex justify-content-end align-items-center gap-3">
+                        <p:commandButton value="Cancel" 
+                                         onclick="PF('assignmentDialog').hide(); return false;"
+                                         styleClass="p-button-outlined p-button-secondary"
+                                         icon="pi pi-times"
+                                         immediate="true" />
+                        <p:commandButton value="Assign Vehicle" 
+                                         action="#{schedule.assignVehicle}"
+                                         update=":assignment:busAssignment :globalMessagesForm:messages :globalMessagesForm:growl :assignmentForm:formMessages"
+                                         oncomplete="if (!args.validationFailed) PF('assignmentDialog').hide()"
+                                         styleClass="p-button-primary"
+                                         icon="pi pi-check"
+                                         validateClient="true" />
+                    </div>
+                </div>
+            </h:form>
+        </p:dialog>
+
+        
+    </ui:define>
+
+</ui:composition>
+

@@ -1,0 +1,108 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    template="/partial/template.xhtml"
+    xmlns:f="jakarta.faces.core"
+    xmlns:p="primefaces">
+
+    <ui:define name="content">
+        <h:form id="driverForm">
+            <p:growl id="globalGrowl" showDetail="true" life="5000" globalOnly="true" />
+
+            <div style="
+                max-width: 800px; 
+                margin: 30px auto; 
+                border-radius: 18px; 
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                background: #23243a;
+                color: #fff;
+                ">
+                <div style="
+                    background: #2d2e4a;
+                    border-top-left-radius: 18px; 
+                    border-top-right-radius: 18px;
+                    padding: 24px 32px 12px 32px;
+                    text-align: center;
+                ">
+                    <h2 style="margin: 0; font-family: 'Granjon', sans-serif; font-size: 26px; color: #fff; letter-spacing: 1px;">Create Driver Account</h2>
+                    <span style="font-size: 13px; color: #bdbdbd;">Fields marked with <span style='color:#ff5252;'>*</span> are required.</span>
+                </div>
+                <div style="padding: 24px 32px;">
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="username" value="Username: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputText id="username" value="#{driverController.newDriver.username}" required="true" requiredMessage="Username is required"
+                            validator="driverValidator"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;">
+                            <f:attribute name="fieldName" value="username" />
+                        </h:inputText>
+                        <p:message for="username" display="text" />
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="email" value="Email: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputText id="email" value="#{driverController.newDriver.email}" required="true" requiredMessage="Email is required"
+                            validator="driverValidator"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;">
+                            <f:attribute name="fieldName" value="email" />
+                        </h:inputText>
+                        <p:message for="email" display="text" />
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="password" value="Password: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputSecret id="password" value="#{driverController.newDriver.password}" required="true" requiredMessage="Password is required"
+                            validator="driverValidator"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;">
+                            <f:attribute name="fieldName" value="password" />
+                        </h:inputSecret>
+                        <p:message for="password" display="text" />
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="firstName" value="First Name: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputText id="firstName" value="#{driverController.newDriver.firstName}" required="true" requiredMessage="First Name is required"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;" />
+                        <p:message for="firstName" display="text" />
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="secondName" value="Second Name:" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputText id="secondName" value="#{driverController.newDriver.secondName}"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;" />
+                        <span style="font-size: 12px; color: #bdbdbd;">(Optional)</span>
+                        <p:message for="secondName" display="text" />
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="phoneNumber" value="Phone Number: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputText id="phoneNumber" value="#{driverController.newDriver.phoneNumber}" required="true" requiredMessage="Phone Number is required"
+                            validator="driverValidator"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;">
+                            <f:attribute name="fieldName" value="phone_number" />
+                        </h:inputText>
+                        <p:message for="phoneNumber" display="text" />
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="driverLicence" value="Driver Licence: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <h:inputText id="driverLicence" value="#{driverController.newDriver.driverLicence}" required="true" requiredMessage="Driver Licence is required"
+                            validator="driverValidator"
+                            style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;">
+                            <f:attribute name="fieldName" value="driver_licence" />
+                            <f:attribute name="role" value="DRIVER" />
+                        </h:inputText>
+                        <p:message for="driverLicence" display="text" />
+                    </div>
+                </div>
+                <div style="
+                    background: #2d2e4a;
+                    border-bottom-left-radius: 18px; 
+                    border-bottom-right-radius: 18px;
+                    padding: 18px 32px; 
+                    text-align: right;
+                ">
+                    <h:commandButton value="Create Driver" action="#{driverController.addDriver}" styleClass="btn btn-primary"
+                        style="padding: 10px 24px; font-size: 16px; border-radius: 6px; margin-right: 10px; background: #5a6ff0; border: none;" />
+                    <h:button value="Cancel" outcome="/admin/drivers" styleClass="btn btn-secondary"
+                        style="padding: 10px 24px; font-size: 16px; border-radius: 6px; background: #444; color: #fff; border: none;" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

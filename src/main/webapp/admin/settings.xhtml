@@ -1,0 +1,229 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/partial/template.xhtml">
+
+    <ui:define name="content">
+        <style>
+            .ui-inputfield {
+                width: 100%;
+                padding: 0.75rem;
+                border-radius: 6px;
+                border: 1px solid var(--surface-border, #dee2e6);
+            }
+            .ui-button {
+                color: #fff;
+                background-color: #3B82F6;
+                border: 1px solid #3B82F6;
+                padding: 0.75rem 1.25rem;
+                font-size: 1rem;
+                border-radius: 6px;
+                cursor: pointer;
+                transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            }
+            .ui-button:hover {
+                background-color: #2563EB;
+                border-color: #2563EB;
+            }
+            .ui-button.secondary {
+                background-color: #64748B;
+                border-color: #64748B;
+            }
+            .ui-button.secondary:hover {
+                background-color: #475569;
+                border-color: #475569;
+            }
+            .card {
+                background: var(--surface-card, #ffffff);
+                border-radius: 10px;
+                padding: 1.5rem;
+                box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02),
+                            0px 0px 2px rgba(0, 0, 0, 0.05),
+                            0px 1px 4px rgba(0, 0, 0, 0.08);
+                margin-bottom: 1.5rem;
+            }
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+                color: var(--text-color-secondary, #6c757d);
+            }
+            /* Hide all sections by default except the account section */
+            .content-section {
+                display: none;
+            }
+            #accountSection {
+                display: block;
+            }
+        </style>
+
+        <div class="min-h-screen flex flex-column relative flex-auto">
+            <div class="p-5 flex flex-column flex-auto">
+                <div class="flex flex-column md:flex-row">
+                    <!-- Side Navigation -->
+                    <div class="md:w-3 lg:w-2 xl:w-2 mb-4 md:mb-0 md:mr-5">
+                        <div class="card">
+                            <ul class="list-none p-0 m-0">
+                                <li class="mb-2">
+                                    <a href="#" onclick="showSection('accountSection'); return false;"
+                                       class="flex align-items-center cursor-pointer p-3 border-round text-300 hover:surface-200  font-medium">
+                                        <i class="pi pi-user mr-2"></i>
+                                        <span>Account</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" onclick="showSection('securitySection'); return false;"
+                                       class="flex align-items-center cursor-pointer p-3 border-round text-300 hover:surface-200 transition-colors transition-duration-150">
+                                        <i class="pi pi-shield mr-2"></i>
+                                        <span>Security</span>
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#" onclick="showSection('notificationsSection'); return false;"
+                                       class="flex align-items-center cursor-pointer p-3 border-round text-300 hover:surface-200 transition-colors transition-duration-150">
+                                        <i class="pi pi-bell mr-2"></i>
+                                        <span>Notifications</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="showSection('privacySection'); return false;"
+                                       class="flex align-items-center cursor-pointer p-3 border-round text-300 hover:surface-200 transition-colors transition-duration-150">
+                                        <i class="pi pi-lock mr-2"></i>
+                                        <span>Privacy</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Main Content Sections -->
+                    <div class="md:w-9 lg:w-10 xl:w-10">
+                        <!-- Account Settings Section -->
+                        <div id="accountSection" class="content-section">
+                            <div class="card">
+                                <h2 class="text-200 font-semibold text-xl mb-4">Account Settings</h2>
+                                <p class="text-100 mb-4">Manage your account information and preferences</p>
+                                
+                                <h:form id="accountForm">
+                                    <div class="grid">
+                                        <p:growl id="accountMessages" />
+                                        <div class="col-12 md:col-6 form-group">
+                                            <label for="firstName">First Name</label>
+                                            <h:inputText id="firstName" value="#{settings.currentUser.firstName}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 md:col-6 form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <h:inputText id="lastName" value="#{settings.currentUser.secondName}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="email">Email</label>
+                                            <h:inputText id="email" value="#{settings.currentUser.email}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="driverLicence">Driver Licence</label>
+                                            <h:inputText id="driverLicence" value="#{settings.currentUser.driverLicence}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="company">Company</label>
+                                            <h:inputText id="company" value="Royal Swift" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 md:col-6 form-group">
+                                            <label for="phone">Phone Number</label>
+                                            <h:inputText id="phone" value="#{settings.currentUser.phoneNumber}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 md:col-6 form-group">
+                                            <label for="role">Role</label>
+                                            <h:outputText id="role" value="#{settings.currentUser.role}" styleClass="ui-inputfield" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-content-end">
+                                        <h:commandButton value="Save Changes" styleClass="ui-button" />
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+
+                        <!-- Security Section (Password Change) -->
+                        <div id="securitySection" class="content-section">
+                            <div class="card">
+                                <h2 class="text-200 font-semibold text-xl mb-4">Security</h2>
+                                <p class="text-300 mb-4">Change your password to keep your account secure</p>
+                                
+                                <h:form id="securityForm">
+                                    <div class="flex justify-content-between align-items-center grid">
+                                         <div class="col-12 md:col-6 form-group">
+                                            <label for="oldPassword">Current Password</label>
+                                            <h:inputText id="oldPassword" value="#{settings.oldPassword}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 md:col-6 form-group">
+                                            <label for="newPassword">New Password</label>
+                                            <h:inputText id="newPassword" value="#{settings.newPassword}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 md:col-6 form-group">
+                                            <label for="confirm">Confirm Password</label>
+                                            <h:inputText id="confirm" value="#{settings.confirmPassword}" styleClass="ui-inputfield" />
+                                        </div>
+                                        <h:commandButton value="Change Password" styleClass="ui-button" action="#{settings.updatePassword()}"/>
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+
+                        <!-- Notifications Section -->
+                        <div id="notificationsSection" class="content-section">
+                            <div class="card">
+                                <h2 class="text-200 font-semibold text-xl mb-4">Notifications</h2>
+                                <p class="text-300 mb-4">Manage your notification preferences</p>
+                                
+                                <h:form id="notificationsForm">
+                                    <div class="grid">
+                                        <div class="col-12 form-group">
+                                            <label for="emailNotifications">Email Notifications</label>
+                                            <p:selectBooleanCheckbox id="emailNotifications" styleClass="ui-inputfield" />
+                                        </div>
+                                        <div class="col-12 form-group">
+                                            <label for="smsNotifications">SMS Notifications</label>
+                                            <p:selectBooleanCheckbox id="smsNotifications" styleClass="ui-inputfield" />
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-end">
+                                        <h:commandButton value="Update Notifications" styleClass="ui-button" />
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Section -->
+                        <div id="privacySection" class="content-section">
+                            <div class="card">
+                                <h2 class="text-200 font-semibold text-xl mb-4">Privacy</h2>
+                                <p class="text-300 mb-4">Control your privacy settings</p>
+                                
+                                <h:form id="privacyForm">
+                                    <div class="grid">
+                                        <div class="col-12 form-group">
+                                            <label for="profileVisibility">Profile Visibility</label>
+                                            <p:selectOneMenu id="profileVisibility" styleClass="ui-inputfield">
+                                                <f:selectItem itemLabel="Public" itemValue="public" />
+                                                <f:selectItem itemLabel="Private" itemValue="private" />
+                                            </p:selectOneMenu>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-content-end">
+                                        <h:commandButton value="Update Privacy" styleClass="ui-button" />
+                                    </div>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

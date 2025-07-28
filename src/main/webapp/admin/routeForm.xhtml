@@ -1,0 +1,117 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:ui="jakarta.faces.facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="jakarta.faces.core"
+                template="/partial/template.xhtml">
+
+  <ui:define name="pageName">
+    <h1 class="text-xl fw-bold">Create New Route</h1>
+  </ui:define>
+
+  <ui:define name="content">
+    <!-- Header -->
+    <div class="flex flex-row align-items-center justify-content-between p-2">
+      <div>
+        <div class="page-head-line">Create New Route</div>
+      </div>
+      <h:form>
+        <div class="flex gap-2">
+          <p:linkButton icon="pi pi-arrow-left"
+                        value="Back to Routes"
+                        styleClass="btn btn-secondary"
+                        outcome="/admin/routes" />
+        </div>
+      </h:form>
+    </div>
+
+    <div class="surface-card shadow-2 border-round p-4">
+      <h:form id="newRouteForm">
+        <h:messages infoClass="alert alert-success"
+                   errorClass="alert alert-danger" />
+                   
+        <div class="ui-fluid">
+          <div class="grid">
+            <div class="col-12 md:col-6 mb-3">
+              <h:outputLabel for="routeName" value="Route Name:" styleClass="block mb-2"/>
+              <p:inputText id="routeName" 
+                           value="#{routeController.newRoute.name}" 
+                           required="true" 
+                           requiredMessage="Route name is required"
+                           styleClass="w-full"/>
+              <p:message for="routeName" />
+            </div>
+            
+            <div class="col-12 md:col-6 mb-3">
+              <div class="flex gap-2">
+                <div class="flex-1">
+                  <h:outputLabel for="originStage" value="Origin Stage:" styleClass="block mb-2"/>
+                  <p:inputText id="originStage" 
+                              value="#{routeController.newRoute.originStage}" 
+                              required="true" 
+                              requiredMessage="Origin stage is required"
+                              styleClass="w-full"/>
+                  <p:message for="originStage" />
+                </div>
+                
+                <div class="flex-1">
+                  <h:outputLabel for="destinationStage" value="Destination Stage:" styleClass="block mb-2"/>
+                  <p:inputText id="destinationStage" 
+                              value="#{routeController.newRoute.destinationStage}" 
+                              required="true" 
+                              requiredMessage="Destination stage is required"
+                              styleClass="w-full"/>
+                  <p:message for="destinationStage" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-4">
+              <div class="flex justify-content-between align-items-center">
+                <h3>Route Stages</h3>
+                <p:commandButton value="Add Stage" 
+                                icon="pi pi-plus"
+                                action="#{routeController.addStage}"
+                                update="stagesTable"
+                                styleClass="btn btn-sm btn-success"/>
+              </div>
+              
+              <p:panel header="Note" styleClass="mb-3">
+                <p>Add all stages that this route will pass through in order. At least two stages are required.</p>
+              </p:panel>
+              
+              <p:dataTable id="stagesTable" value="#{routeController.stages}" var="stage" styleClass="mt-2">
+                <p:column headerText="Stage Name">
+                  <p:inputText value="#{stage.name}" required="true" styleClass="w-100"/>
+                </p:column>
+                <p:column headerText="Latitude">
+                  <p:inputNumber value="#{stage.latitude}" decimalPlaces="6" styleClass="w-100"/>
+                </p:column>
+                <p:column headerText="Longitude">
+                  <p:inputNumber value="#{stage.longitude}" decimalPlaces="6" styleClass="w-100"/>
+                </p:column>
+                <p:column width="70">
+                  <p:commandButton icon="pi pi-trash" 
+                                  title="Remove Stage"
+                                  action="#{routeController.removeStage(stage)}"
+                                  update="stagesTable"
+                                  styleClass="btn btn-sm btn-danger"/>
+                </p:column>
+              </p:dataTable>
+            </div>
+            
+            <div class="flex justify-content-end mt-4 gap-2">
+              <p:commandButton value="Cancel" 
+                              styleClass="btn btn-secondary"
+                              immediate="true"
+                              action="/admin/routes?faces-redirect=true"/>
+              <p:commandButton value="Save Route" 
+                              action="#{routeController.createRoute}"
+                              styleClass="btn btn-primary"/>
+            </div>
+          </div>
+        </div>
+      </h:form>
+    </div>
+  </ui:define>
+</ui:composition>

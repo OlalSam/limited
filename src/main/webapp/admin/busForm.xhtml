@@ -1,0 +1,112 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    template="/partial/template.xhtml"
+    xmlns:f="jakarta.faces.core">
+
+    <ui:define name="content">
+        <h:form id="busForm">
+            <p:growl id="globalGrowl" severity="info, error, fatal" showDetail="true" life="3000" globalOnly="true" />
+
+            <div style="
+                max-width: 800px; 
+                margin: 40px auto; 
+                border-radius: 18px; 
+                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                background: #23243a;
+                color: #fff;
+                ">
+                <div style="
+                    background: #2d2e4a;
+                    border-top-left-radius: 18px; 
+                    border-top-right-radius: 18px;
+                    padding: 24px 32px 12px 32px;
+                    text-align: center;
+                ">
+                    <h2 style="margin: 0; font-family: 'Granjon', sans-serif; font-size: 26px; color: #fff; letter-spacing: 1px;">Create Vehicle</h2>
+                    <span style="font-size: 13px; color: #bdbdbd;">Fields marked with <span style='color:#ff5252;'>*</span> are required.</span>
+                </div>
+                
+                <div style="padding: 24px 32px;">
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="plateNumber" value="Plate Number: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <p:inputText id="plateNumber" 
+                                   value="#{busController.newBus.plateNumber}" 
+                                   required="true" 
+                                   requiredMessage="Plate Number is required"
+                                   maxlength="20"
+                                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;" />
+                        <p:message for="plateNumber" display="text" />
+                    </div>
+                    
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="model" value="Model: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <p:inputText id="model" 
+                                   value="#{busController.newBus.vehicleModel}" 
+                                   required="true" 
+                                   requiredMessage="Model is required"
+                                   maxlength="100"
+                                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;" />
+                        <p:message for="model" display="text" />
+                    </div>
+                    
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="capacity" value="Capacity: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <p:inputText id="capacity" 
+                                   value="#{busController.newBus.capacity}" 
+                                   required="true" 
+                                   requiredMessage="Capacity is required"
+                                   converterMessage="Please enter a valid number for capacity"
+                                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;">
+                            <f:validateLongRange minimum="1" maximum="100" />
+                        </p:inputText>
+                        <p:message for="capacity" display="text" />
+                    </div>
+                    
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="ownerId" value="Owner ID: *" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <p:inputText id="ownerId" 
+                                   value="#{busController.newBus.ownerNationalId}" 
+                                   required="true" 
+                                   requiredMessage="Owner ID is required"
+                                   maxlength="20"
+                                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;" />
+                        <p:message for="ownerId" display="text" />
+                    </div>
+                    
+                    <div style="margin-bottom: 18px;">
+                        <h:outputLabel for="sacco" value="Sacco:" style="display: block; font-weight: 600; color: #fff; margin-bottom: 6px;" />
+                        <p:inputText id="sacco" 
+                                   value="#{busController.newBus.sacco}"
+                                   maxlength="100"
+                                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #23243a; color: #fff; font-size: 16px;" />
+                        <span style="font-size: 12px; color: #bdbdbd;">(Optional)</span>
+                        <p:message for="sacco" display="text" />
+                    </div>
+                </div>
+                
+                <div style="
+                    background: #2d2e4a;
+                    border-bottom-left-radius: 18px; 
+                    border-bottom-right-radius: 18px;
+                    padding: 18px 32px; 
+                    text-align: right;
+                ">
+                    <p:commandButton value="Create Vehicle" 
+                                   action="#{busController.addBus()}" 
+                                   styleClass="btn btn-primary"
+                                   style="padding: 10px 24px; font-size: 16px; border-radius: 6px; margin-right: 10px; background: #5a6ff0; border: none;"
+                                   update="busForm"
+                                   process="@form" />
+                    <p:button value="Cancel" 
+                            outcome="/admin/fleet" 
+                            styleClass="btn btn-secondary"
+                            style="padding: 10px 24px; font-size: 16px; border-radius: 6px; background: #444; color: #fff; border: none;" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
